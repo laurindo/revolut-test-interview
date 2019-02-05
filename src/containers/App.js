@@ -5,13 +5,13 @@ import { Provider } from 'react-redux';
 
 import Converter from './Converter';
 import * as reducers from '../reducers';
-import getCurrenciesSaga from '../sagas/sagas';
+import sagas from '../sagas';
 
 const sagaMiddleware = createSagaMiddleware();
 const reducer = combineReducers(reducers);
 const store = createStore(reducer, applyMiddleware(sagaMiddleware));
 
-sagaMiddleware.run(getCurrenciesSaga);
+sagas.registerWithMiddleware(sagaMiddleware);
 
 export default class App extends Component {
   render() {
