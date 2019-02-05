@@ -29,11 +29,11 @@ body {
   color: #fff;
   position: relative;
   overflow: hidden;
+  margin: 0;
 }
 
 .page-header {
   padding-bottom: 9px;
-  margin: 40px 0 20px;
   border-bottom: 1px solid #eee;
 }
 
@@ -45,7 +45,7 @@ body {
   animation: a 4s infinite;
   height: 300px;
   width: 300px;
-  opacity: .5;
+  opacity: .1;
   left: 3%;
   top: -21%;
 }
@@ -54,7 +54,7 @@ body {
   animation: a 6s infinite;
   height: 400px;
   width: 400px;
-  opacity: .4;
+  opacity: .2;
   right: -5%;
   top: -12%;
 }
@@ -72,7 +72,7 @@ body {
   animation: a 10s infinite;
   height: 100px;
   width: 100px;
-  opacity: .9;
+  opacity: .2;
   right: 27%;
   top: 70%;
 }
@@ -92,7 +92,7 @@ body {
   top: 35%;
   height: 80px;
   width: 80px;
-  opacity: .8;
+  opacity: .2;
 }
 
 .index-page .squares.square7 {

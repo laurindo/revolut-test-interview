@@ -4,7 +4,7 @@ import createSagaMiddleware from 'redux-saga';
 import { Provider } from 'react-redux';
 
 import Converter from './Converter';
-import Test from './Test';
+import ContainerAnimated from '../components/ContainerAnimated';
 import * as reducers from '../reducers';
 import sagas from '../sagas';
 
@@ -19,9 +19,9 @@ export default class App extends Component {
     return (
       <div className="index-page">
         <Provider store={store}>
-          <Test>
+          <ContainerAnimated>
             <Converter />
-          </Test>
+          </ContainerAnimated>
         </Provider>
       </div>
     );
