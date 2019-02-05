@@ -4,6 +4,7 @@ import createSagaMiddleware from 'redux-saga';
 import { Provider } from 'react-redux';
 
 import Converter from './Converter';
+import Test from './Test';
 import * as reducers from '../reducers';
 import sagas from '../sagas';
 
@@ -16,9 +17,11 @@ sagas.registerWithMiddleware(sagaMiddleware);
 export default class App extends Component {
   render() {
     return (
-      <div>
+      <div className="index-page">
         <Provider store={store}>
-          <Converter />
+          <Test>
+            <Converter />
+          </Test>
         </Provider>
       </div>
     );

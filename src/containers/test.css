@@ -1,0 +1,115 @@
+@keyframes a {
+  0% {
+      transform: translateX(-10px)
+  }
+
+  50% {
+      transform: translateX(10px)
+  }
+
+  to {
+      transform: translateX(-10px)
+  }
+}
+
+body {
+  margin: 0;
+  font-size: .875rem;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #525f7f;
+  text-align: left;
+  background-color: #171941;
+}
+
+.page-header {
+  min-height: 100vh;
+  max-height: 999px;
+  padding: 0;
+  color: #fff;
+  position: relative;
+  overflow: hidden;
+}
+
+.page-header {
+  padding-bottom: 9px;
+  margin: 40px 0 20px;
+  border-bottom: 1px solid #eee;
+}
+
+.header-filter {
+  position: relative;
+}
+
+.index-page .squares.square1 {
+  animation: a 4s infinite;
+  height: 300px;
+  width: 300px;
+  opacity: .5;
+  left: 3%;
+  top: -21%;
+}
+
+.index-page .squares.square2 {
+  animation: a 6s infinite;
+  height: 400px;
+  width: 400px;
+  opacity: .4;
+  right: -5%;
+  top: -12%;
+}
+
+.index-page .squares.square3 {
+  animation: a 5s infinite;
+  height: 200px;
+  width: 200px;
+  opacity: .1;
+  left: -5%;
+  bottom: 0;
+}
+
+.index-page .squares.square4 {
+  animation: a 10s infinite;
+  height: 100px;
+  width: 100px;
+  opacity: .9;
+  right: 27%;
+  top: 70%;
+}
+
+.index-page .squares.square5 {
+  animation: a 6s infinite;
+  height: 250px;
+  width: 250px;
+  opacity: .1;
+  left: 32%;
+  bottom: 29%;
+}
+
+.index-page .squares.square6 {
+  animation: a 9s infinite;
+  left: 10%;
+  top: 35%;
+  height: 80px;
+  width: 80px;
+  opacity: .8;
+}
+
+.index-page .squares.square7 {
+  animation: a 3s infinite;
+  width: 300px;
+  height: 300px;
+  right: -5%;
+  bottom: 0;
+  opacity: .1;
+}
+
+.index-page .squares {
+  animation: a 1s infinite;
+  background: #54a3f5;
+  background: linear-gradient(0deg,#549cf5,#4e89e1);
+  position: absolute;
+  transition: .5s ease-out;
+  overflow: hidden;
+  border-radius: 20%;
+}
