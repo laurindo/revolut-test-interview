@@ -5,6 +5,7 @@ import { Provider } from 'react-redux';
 
 import Converter from './Converter';
 import BalanceSliderContainer from './BalanceSliderContainer';
+import ConvertedCurrencyContainer from './ConvertedCurrencyContainer';
 
 import ContainerAnimated from '../components/ContainerAnimated';
 import * as reducers from '../reducers';
@@ -23,6 +24,7 @@ export default class App extends Component {
         <Provider store={store}>
           <ContainerAnimated>
             <BalanceSliderContainer title="Balances" />
+            <ConvertedCurrencyContainer />
             <Converter />
           </ContainerAnimated>
         </Provider>

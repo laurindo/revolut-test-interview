@@ -7,6 +7,13 @@ export function getCurrencies(currencies) {
   };
 }
 
+export function getCurrenciesConverted(currenciesConverted) {
+  return {
+    type: types.REQUEST_CURRENCY_CONVERTED,
+    payload: currenciesConverted,
+  };
+}
+
 export function changeCurrency(selectedCurrency) {
   return {
     type: types.CHANGE_CURRENCY,
