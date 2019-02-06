@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import CurrencyList from '../CurrencyList';
 import './style.css';
 
 class ConvertedCurrencyList extends Component {
@@ -7,20 +8,13 @@ class ConvertedCurrencyList extends Component {
     requestCurrencies(currentBalance.currency);
   }
 
-  renderList() {
-    return this.props.convertedValues.map((currency, index) => {
-      return (
-        <li key={index}>{ currency.currency } - { currency.value }</li>
-      );
-    });
-  }
   render() {
     return (
       <div className='container'>
         <div className="row">
-          <ul className='list'>
-            { this.renderList() }
-          </ul>
+          {
+            (this.props.loading) ? <CurrencyList {...this.props} /> : <p>loading...</p>
+          }
         </div>
       </div>
     );

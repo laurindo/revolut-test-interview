@@ -2,13 +2,9 @@ import React, { Component } from "react";
 import Slider from "react-slick";
 import './style.css';
 import Button from '../Button';
+import BalanceWidget from './BalanceWidget';
 
 export default class BalanceSlider extends Component {
-  state = {
-    activeSlide: 0,
-    activeSlide2: 0
-  };
-
   componentDidMount() {
     const { currentBalance } = this.props;
     this.timer = setInterval(() => this.props.getCurrentQuoation(currentBalance), 1000 * 60);
@@ -20,18 +16,14 @@ export default class BalanceSlider extends Component {
     this.timer = null;
   }
 
-  renderContent() {
-    return this.props.balances.map((balance, index) => {
-      return (
-        <div key={index} className='slider-widget'>
-          <div className='content'>
-            <p>Quotation: { this.props.currentQuotation }</p>
-            <h3>{balance.symbol} {balance.value}</h3>
-            <h4>{balance.currency}</h4>
-          </div>
-        </div>
-      );
-    });
+  renderBalanceWidget() {
+    return this.props.balances.map((balance, index) => (
+      <BalanceWidget
+        key={index}
+        title='Quotation'
+        balance={balance}
+        {...this.props} />
+    ));
   }
 
   render() {
@@ -45,19 +37,13 @@ export default class BalanceSlider extends Component {
       speed: 500,
       nextArrow: null,
       prevArrow: null,
-      afterChange: current => this.setState({ activeSlide2: current })
+      afterChange: current => this.props.slideWidget(current, this.props.balances),
     };
+
     return (
       <div className='simple-slider'>
         <h2 className='title'>{ this.props.title }</h2>
-
-        <p>
-          AfterChange => activeSlide: <strong>{this.state.activeSlide2}</strong>
-        </p>
-
-        <Slider {...settings}>
-          { this.renderContent() }
-        </Slider>
+        <Slider {...settings}>{ this.renderBalanceWidget() }</Slider>
         <Button title="exchange" />
       </div>
     );

@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
-import * as currencyActions from '../actions/CurrencyActions';
 import * as actionTypes from '../constants/ActionTypes';
 import BalanceSlider from '../components/BalanceSlider';
+import { getCurrentBalanceCurrency } from '../utils/GeneralUtils';
 
 const mapStateToProps = state => {
   return {
@@ -13,8 +13,8 @@ const mapStateToProps = state => {
 
 function mapDispatchToProps(dispatch) {
   return {
-    changeBalance: (selectedCurrency) => {
-      dispatch(currencyActions.changeCurrency(selectedCurrency));
+    slideWidget: (selectedCurrency, balances) => {
+      dispatch({ type: actionTypes.REQUEST_CURRENCY_CONVERTED, payload: getCurrentBalanceCurrency(balances, selectedCurrency) });
     },
     getCurrentQuoation: (currentBalance) => {
       dispatch({ type: actionTypes.REQUEST_QUOTATION, payload: currentBalance });

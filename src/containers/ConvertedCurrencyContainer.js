@@ -6,6 +6,7 @@ const mapStateToProps = state => {
   return {
     convertedValues: state.convertedCurrencyList.convertedValues,
     currentBalance: state.balance.currentBalance,
+    loading: state.convertedCurrencyList.loading,
   };
 };
 

@@ -25,3 +25,11 @@ export const formatValueToCurrency = (currency = 'USD', digits = 2) => {
     },
   };
 };
+
+export const getCurrentBalanceCurrency = (balances, selectedCurrency) => {
+  try {
+    return balances[selectedCurrency].currency;
+  } catch (error) {
+    return 'USD';
+  }
+};

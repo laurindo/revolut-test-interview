@@ -2,6 +2,7 @@ import * as types from '../constants/ActionTypes';
 
 const initialState = {
   convertedValues: [],
+  loading: false,
 };
 
 export default function convertedCurrencyList(state = initialState, action) {
@@ -11,6 +12,19 @@ export default function convertedCurrencyList(state = initialState, action) {
         ...state,
         convertedValues: action.payload,
       };
+
+    case types.LOADING_CONVERTED_CURRENCY_LIST:
+      return {
+        ...state,
+        loading: true,
+      };
+
+    case types.LOADED_CONVERTED_CURRENCY_LIST:
+      return {
+        ...state,
+        loading: false,
+      };
+
     default:
       return state;
   }
