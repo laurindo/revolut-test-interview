@@ -1,10 +1,9 @@
 import React, { Component } from 'react';
 import Currency from '../Currency';
-import ExhangeRateEndpointService from '../../utils/ExchangeRateEndpointutil';
 
 class Converter extends Component {
   componentDidMount() {
-    this.timer = setInterval(() => this.props.onRequest(), 1000 * 60);
+    //this.timer = setInterval(() => this.props.onRequest(), 1000 * 60);
     this.props.onRequest();
   }
 

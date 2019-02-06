@@ -4,6 +4,8 @@ import createSagaMiddleware from 'redux-saga';
 import { Provider } from 'react-redux';
 
 import Converter from './Converter';
+import BalanceSliderContainer from './BalanceSliderContainer';
+
 import ContainerAnimated from '../components/ContainerAnimated';
 import * as reducers from '../reducers';
 import sagas from '../sagas';
@@ -20,6 +22,7 @@ export default class App extends Component {
       <div className="index-page">
         <Provider store={store}>
           <ContainerAnimated>
+            <BalanceSliderContainer title="Balances" />
             <Converter />
           </ContainerAnimated>
         </Provider>

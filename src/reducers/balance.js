@@ -1,34 +1,33 @@
 import * as types from '../constants/ActionTypes';
 
+const balances = [{
+  currency: 'USD',
+  value: 90.08,
+  symbol: '$',
+}, {
+  currency: 'GBP',
+  value: 290.08,
+  symbol: '£',
+}, {
+  currency: 'EUR',
+  value: 190.08,
+  symbol: '€',
+}];
+
 const initialState = {
-  balance: {
-    GBP: {
-      symbol: '£',
-      value: 290.98
-    },
-    EUR: {
-      symbol: '€',
-      value: 200,
-    },
-    USD: {
-      symbol: '$',
-      value: 45.78,
-    }
-  },
+  balances,
+  currentBalance: balances[0],
+  currentQuotation: 0,
 };
+
+console.log(initialState.currentBalance);
 
 export default function balance(state = initialState, action) {
   switch (action.type) {
-    case types.CHANGE_BALANCE:
+    case types.SUCCESS_QUOTATION:
       return {
         ...state,
-        balance: {
-          ...state.balance,
-          [action.payload.symbol]: {
-            symbol: action.payload.symbol,
-            value: action.payload.value,
-          },
-        },
+        currentQuotation: action.payload,
       };
 
     default:
