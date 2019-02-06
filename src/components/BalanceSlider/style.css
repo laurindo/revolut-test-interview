@@ -1,0 +1,38 @@
+.simple-slider {
+  padding: 10px;
+}
+
+.simple-slider .title {
+  color: #0e5fa6;
+}
+
+.simple-slider .slider-widget .content {
+  background-color: #c3c5e8;
+  background-image: linear-gradient(to right, #b2d6f5, #56baea);
+  border-radius: 5px;
+  padding: 10px 5px;
+  min-height: 150px;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  color: #1d2552;
+  margin: 10px;
+  flex-direction: column;
+}
+
+.simple-slider .slider-widget p {
+  color: #fff;
+  font-size: 1.2em;
+}
+
+.simple-slider .slider-widget h3 {
+  color: #0c5da5;
+}
+
+.simple-slider .slider-widget h4 {
+  color: #0c5da5;
+}
+
+.simple-slider .slick-current .content {
+  box-shadow: #94c8ec 0px 6px 7px 0px;
+}

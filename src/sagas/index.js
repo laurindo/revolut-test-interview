@@ -1,7 +1,9 @@
 import * as currencySagas from './currency-sagas';
+import * as quotationSagas from './quotation-sagas';
 
 const sagas = {
   ...currencySagas,
+  ...quotationSagas,
 };
 
 function registerWithMiddleware(middleware) {

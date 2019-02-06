@@ -3,10 +3,10 @@ import axios from 'axios';
 const API_ID = 'ac12a3f536f347db9a29194a5eee8e9c';
 
 export default class ExchangeRateEndpointUtil {
-  static getLatest() {
+  static getQuotation(params = { symbol: 'USD' }) {
     return axios({
       method: 'get',
-      url: `https://openexchangerates.org/api/latest.json?app_id=${API_ID}`,
+      url: `https://openexchangerates.org/api/latest.json?app_id=${API_ID}&symbols=GBP,EUR,CAD,AUD,USD,BRL,BTC`,
     });
   }
 
