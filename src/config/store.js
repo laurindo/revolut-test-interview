@@ -4,13 +4,12 @@ import createSagaMiddleware from 'redux-saga';
 import * as reducers from '../reducers';
 import sagas from '../sagas';
 
-const sagaMiddleware = createSagaMiddleware();
-const reducer = combineReducers(reducers);
-
-
-sagas.registerWithMiddleware(sagaMiddleware);
-
 export default function configureStore() {
+  const sagaMiddleware = createSagaMiddleware();
+  const reducer = combineReducers(reducers);
   const store = createStore(reducer, applyMiddleware(sagaMiddleware));
+
+  sagas.registerWithMiddleware(sagaMiddleware);
+
   return store;
 }
