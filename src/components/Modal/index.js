@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Button from '../Button';
 import './style.css';
 
 class Modal extends Component {
@@ -7,7 +8,7 @@ class Modal extends Component {
       <div className='modal'>
         <div className='modal_inner'>
           <h1>{this.props.text}</h1>
-          <button onClick={this.props.closePopup}>close me</button>
+          <Button title="Close Me" onClick={() => this.props.hideModal()} />
         </div>
       </div>
     );

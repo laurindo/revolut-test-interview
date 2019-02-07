@@ -33,3 +33,8 @@ export const getCurrentBalanceCurrency = (balances, selectedCurrency) => {
     return 'USD';
   }
 };
+
+export const calculateBalanceTotal = (currentBalance, unitValue) => {
+  const Formatter = formatValueToCurrency();
+  return Formatter.format(parseFloat(currentBalance) * parseFloat(unitValue));
+};

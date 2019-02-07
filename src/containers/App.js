@@ -3,6 +3,7 @@ import { combineReducers, createStore, applyMiddleware } from 'redux';
 import createSagaMiddleware from 'redux-saga';
 import { Provider } from 'react-redux';
 
+import Logo from '../components/Logo';
 import Converter from './Converter';
 import BalanceSliderContainer from './BalanceSliderContainer';
 import ConvertedCurrencyContainer from './ConvertedCurrencyContainer';
@@ -23,6 +24,7 @@ export default class App extends Component {
       <div className="index-page">
         <Provider store={store}>
           <ContainerAnimated>
+            <Logo width='20%' height='20%' />
             <BalanceSliderContainer title="Balances" />
             <ConvertedCurrencyContainer />
             <Converter />

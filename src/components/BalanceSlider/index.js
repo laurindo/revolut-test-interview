@@ -3,6 +3,7 @@ import Slider from "react-slick";
 import './style.css';
 import Button from '../Button';
 import BalanceWidget from './BalanceWidget';
+import Modal from '../../containers/ModalContainer';
 
 export default class BalanceSlider extends Component {
   componentDidMount() {
@@ -43,8 +44,14 @@ export default class BalanceSlider extends Component {
     return (
       <div className='simple-slider'>
         <h2 className='title'>{ this.props.title }</h2>
+        {
+          this.props.isShowModal ? <Modal /> : null
+        }
         <Slider {...settings}>{ this.renderBalanceWidget() }</Slider>
-        <Button title="exchange" />
+        <Button
+          title="exchange"
+          onClick={() => this.props.showModal()}
+          />
       </div>
     );
   }
