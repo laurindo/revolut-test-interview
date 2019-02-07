@@ -1,0 +1,26 @@
+@import url(../../styles/scss/colors.css);
+.simple-slider {
+  padding: 10px; }
+  .simple-slider .title {
+    color: get-color("blueStrong"); }
+  .simple-slider .slick-current .content {
+    box-shadow: get-color("blueShadow") 0px 6px 7px 0px; }
+  .simple-slider .slider-widget .content {
+    background-color: get-color("gray");
+    background-image: linear-gradient(to right, get-color("blueLight"), get-color("blueStrong"));
+    border-radius: 5px;
+    padding: 10px 5px;
+    min-height: 150px;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    color: #1d2552;
+    margin: 10px;
+    flex-direction: column; }
+  .simple-slider .slider-widget p {
+    color: get-color("white");
+    font-size: 1.2em; }
+  .simple-slider .slider-widget h3, .simple-slider .slider-widget h4 {
+    color: get-color("blueStrong"); }
+  .simple-slider .slider-widget h4 {
+    color: #0c5da5; }

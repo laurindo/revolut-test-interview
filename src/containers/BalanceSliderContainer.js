@@ -8,6 +8,7 @@ const mapStateToProps = state => {
     balances: state.balance.balances,
     currentBalance: state.balance.currentBalance,
     currentQuotation: state.balance.currentQuotation,
+    isShowModal: state.modal.show,
   };
 };
 
@@ -15,6 +16,9 @@ function mapDispatchToProps(dispatch) {
   return {
     slideWidget: (selectedCurrency, balances) => {
       dispatch({ type: actionTypes.REQUEST_CURRENCY_CONVERTED, payload: getCurrentBalanceCurrency(balances, selectedCurrency) });
+    },
+    showModal: () => {
+      dispatch({ type: actionTypes.SHOW_MODAL });
     },
     getCurrentQuoation: (currentBalance) => {
       dispatch({ type: actionTypes.REQUEST_QUOTATION, payload: currentBalance });

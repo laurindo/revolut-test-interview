@@ -7,14 +7,15 @@
   right: 0;
   bottom: 0;
   margin: auto;
+  display: block;
   background-color: rgba(0,0,0, 0.5);
 }
 .modal_inner {
   position: absolute;
-  left: 25%;
-  right: 25%;
-  top: 25%;
-  bottom: 25%;
+  left: 5%;
+  right: 5%;
+  top: 5%;
+  bottom: 5%;
   margin: auto;
   background: white;
 }
