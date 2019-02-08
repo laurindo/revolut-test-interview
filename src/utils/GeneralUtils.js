@@ -34,6 +34,14 @@ export const getCurrentBalanceCurrency = (balances, selectedCurrency) => {
   }
 };
 
+export const getCurrentBalance = (balances, selectedCurrency) => {
+  try {
+    return balances[selectedCurrency];
+  } catch (error) {
+    return null;
+  }
+};
+
 export const calculateBalanceTotal = (currentBalance, unitValue) => {
   const Formatter = formatValueToCurrency();
   return Formatter.format(parseFloat(currentBalance) * parseFloat(unitValue));

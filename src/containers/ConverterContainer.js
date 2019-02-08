@@ -10,46 +10,45 @@ import '../components/Converter/style.css';
 
 class ConverterContainer extends Component {
   componentDidMount() {
-    //this.timer = setInterval(() => this.props.onRequest(), 1000 * 60);
-    this.props.mountSelectCurrencies();
-  }
-
-  componentWillUnmount() {
-    clearInterval(this.timer);
-    this.timer = null;
+    const { balances, mountSelectCurrencies, currentBalance } = this.props;
+    mountSelectCurrencies(balances, currentBalance);
   }
 
   render() {
     return (
       <div className="converter-area">
-        <div className="converter-widget">
-          <Currency
-            changeCurrency={this.props.selectCurrency}
-            selectedCurrency={this.props.selectedCurrency}
-            options={this.props.currencies}  />
 
-          <InputNumber
-            onChange={this.props.changeValueSelected}
-            value={this.props.valueSelected} />
-        </div>
-
-        <div className='exchange-area'>
-          <Button
-            title="exchange"
-            icon="exchange"
-            onClick={() => alert('change values')}
-            />
+        <div className="head">
+          <p>Balance: </p>
+          <span> { this.props.currentBalance.currency } </span>
+          <span> { this.props.currentBalance.symbol } </span>
+          <span> { this.props.currentBalance.value } </span>
         </div>
 
         <div className="converter-widget">
-          <Currency
-            changeCurrency={this.props.selectCurrencyConversion}
-            selectedCurrency={this.props.selectedCurrencyConversion}
-            options={this.props.currencies}  />
+          <div className="fields">
+            <Currency
+              changeCurrency={this.props.selectCurrency}
+              selectedCurrency={this.props.selectedCurrency}
+              options={this.props.currencies}  />
 
-          <InputNumber
-            onChange={this.props.changeValueConverted}
-            value={this.props.valueConverted} />
+            <InputNumber
+              onChange={this.props.changeValueSelected}
+              value={this.props.valueSelected} />
+          </div>
+        </div>
+
+        <div className="converter-widget">
+          <div className="fields">
+            <Currency
+              changeCurrency={this.props.selectCurrencyConversion}
+              selectedCurrency={this.props.selectedCurrencyConversion}
+              options={this.props.currencies}  />
+
+            <InputNumber
+              onChange={this.props.changeValueConverted}
+              value={this.props.valueConverted} />
+          </div>
         </div>
       </div>
     );
@@ -58,9 +57,10 @@ class ConverterContainer extends Component {
 
 const mapStateToProps = state => {
   return {
-    currencies: state.balance.balances,
+    convertedValues: state.convertedCurrencyList.convertedValues,
+    currencies: state.converter.currencies,
     currentBalance: state.balance.currentBalance,
-    selectedCurrency: state.balance.currentBalance,
+    selectedCurrency: state.converter.selectedCurrency,
     selectedCurrencyConversion: state.converter.selectedCurrencyConversion,
     valueSelected: state.converter.valueSelected,
     valueConverted: state.converter.valueConverted,
@@ -69,8 +69,8 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    mountSelectCurrencies: () => {
-      dispatch(converterActions.mountSelectCurrencies());
+    mountSelectCurrencies: (balances, currentBalance) => {
+      dispatch(converterActions.mountSelectCurrencies(balances, currentBalance));
     },
     selectCurrency: value => {
       dispatch({ type: actionTypes.SELECT_CURRENCY, payload: value });

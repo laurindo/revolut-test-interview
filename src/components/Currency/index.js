@@ -1,27 +1,16 @@
-import React, { PureComponent } from 'react';
+import React from 'react';
 import Select from 'react-select';
 import PropTypes from 'prop-types';
+import './style.css';
 
-class Currency extends PureComponent {
-  constructor(props) {
-    super(props);
-    this.handleChange = this.handleChange.bind(this);
-  }
-
-  handleChange(selectedOption) {
-    this.props.changeCurrency(selectedOption);
-  }
-
-  render() {
-    return (
-      <Select
-        value={this.props.selectedCurrency}
-        onChange={this.handleChange}
-        options={this.props.options}
-        />
-    );
-  }
-}
+const Currency = ({ options, changeCurrency, selectedCurrency }) => (
+  <Select
+    className="currency-select"
+    value={ selectedCurrency }
+    onChange={ (selected) => changeCurrency(selected) }
+    options={ options }
+    />
+);
 
 Currency.propTypes = {
   selectedCurrency: PropTypes.object.isRequired,

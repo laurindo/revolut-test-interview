@@ -1,9 +1,17 @@
 import * as types from '../constants/ActionTypes';
 
 const initialState = {
+  currencies: [],
   valueSelected: 0,
   valueConverted: 0,
-  selectedCurrencyConversion: {},
+  selectedCurrency: {
+    label: '',
+    value: 0,
+  },
+  selectedCurrencyConversion: {
+    label: '',
+    value: 0,
+  },
 };
 
 export default function converter(state = initialState, action) {
@@ -24,6 +32,21 @@ export default function converter(state = initialState, action) {
       return {
         ...state,
         selectedCurrencyConversion: action.payload,
+      };
+
+    case types.MOUNT_SELECT_CURRENCIES:
+      return {
+        ...state,
+        selectedCurrency: {
+          label: action.payload.currentBalance.currency,
+          value: action.payload.currentBalance.value,
+        },
+        currencies: action.payload.balances.map(balance => {
+          return {
+            label: balance.currency,
+            value: balance.value,
+          };
+        }),
       };
 
     default:

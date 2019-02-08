@@ -36,6 +36,12 @@ export default function balance(state = initialState, action) {
         currentBalance: action.payload,
       };
 
+    case types.CHANGE_BALANCE:
+      return {
+        ...state,
+        currentBalance: action.payload,
+      };
+
     default:
       return state;
   }
