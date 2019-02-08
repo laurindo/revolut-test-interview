@@ -3,7 +3,8 @@ import { connect } from 'react-redux';
 import * as converterActions from '../actions/ConverterActions';
 import * as actionTypes from '../constants/ActionTypes';
 import Currency from '../components/Currency';
-import Button from '../components/Button';
+import Title from '../components/Title';
+import ValueNumber from '../components/ValueNumber';
 import InputNumber from '../components/InputNumber';
 
 import '../components/Converter/style.css';
@@ -19,10 +20,10 @@ class ConverterContainer extends Component {
       <div className="converter-area">
 
         <div className="head">
-          <p>Balance: </p>
+          <Title title="Balance" />
           <span> { this.props.currentBalance.currency } </span>
           <span> { this.props.currentBalance.symbol } </span>
-          <span> { this.props.currentBalance.value } </span>
+          <ValueNumber value={ this.props.currentBalance.value } />
         </div>
 
         <div className="converter-widget">
