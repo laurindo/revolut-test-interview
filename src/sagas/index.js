@@ -1,9 +1,7 @@
-import * as currencySagas from './currency-sagas';
 import * as quotationSagas from './quotation-sagas';
 import * as currencyConvertedSagas from './currency-converted-sagas';
 
 const sagas = {
-  ...currencySagas,
   ...quotationSagas,
   ...currencyConvertedSagas,
 };

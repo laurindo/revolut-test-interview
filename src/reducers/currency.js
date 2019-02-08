@@ -21,6 +21,12 @@ export default function currency(state = initialState, action) {
         selectedCurrency: action.payload,
       };
 
+    case types.REQUEST_CURRENCIES:
+      return {
+        ...state,
+        currencies: action.payload,
+      };
+
     default:
       return state;
   }

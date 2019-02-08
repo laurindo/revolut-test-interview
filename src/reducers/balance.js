@@ -30,6 +30,12 @@ export default function balance(state = initialState, action) {
         currentQuotation: action.payload,
       };
 
+    case types.SELECT_CURRENCY:
+      return {
+        ...state,
+        currentBalance: action.payload,
+      };
+
     default:
       return state;
   }

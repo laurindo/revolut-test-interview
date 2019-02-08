@@ -20,6 +20,9 @@ function mapDispatchToProps(dispatch) {
     showModal: () => {
       dispatch({ type: actionTypes.SHOW_MODAL });
     },
+    getAllCurrencies: () => {
+      dispatch({ type: actionTypes.REQUEST_CURRENCIES });
+    },
     getCurrentQuoation: (currentBalance) => {
       dispatch({ type: actionTypes.REQUEST_QUOTATION, payload: currentBalance });
     },

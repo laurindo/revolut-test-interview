@@ -36,3 +36,9 @@
 .simple-slider .slick-current .content {
   box-shadow: #94c8ec 0px 6px 7px 0px;
 }
+
+.exchange-area {
+  display: flex;
+  justify-content: center;
+  margin: 20px 0;
+}

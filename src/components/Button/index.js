@@ -7,12 +7,13 @@ export default class Button extends Component {
   }
 
   render() {
+    const { disabled, icon, title } = this.props;
     return (
       <button
-        disabled={this.props.disabled}
+        disabled={disabled}
         className="btnSave"
         onClick={() => this.handleClick() }>
-          { this.props.title }
+          { icon ? <i className={"fa fa-" + this.props.icon}></i> : title }
       </button>
     );
   }

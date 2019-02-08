@@ -15,7 +15,6 @@ class Converter extends Component {
   render() {
     return (
       <div>
-        { this.props.fetching ? <p>fetching...</p> : <p>{ JSON.stringify(this.props.selectedCurrency) }</p> }
         <Currency
           changeCurrency={this.props.changeCurrency}
           selectedCurrency={this.props.selectedCurrency}

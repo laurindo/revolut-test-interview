@@ -10,7 +10,9 @@ export default function convertedCurrencyList(state = initialState, action) {
     case types.SUCCESS_CURRENCY_CONVERTED:
       return {
         ...state,
-        convertedValues: action.payload,
+        convertedValues: action.payload.filter(currency => {
+          return !currency.error;
+        }),
       };
 
     case types.LOADING_CONVERTED_CURRENCY_LIST:

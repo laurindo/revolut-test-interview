@@ -4,12 +4,18 @@ import './style.css';
 import Button from '../Button';
 import BalanceWidget from './BalanceWidget';
 import Modal from '../../containers/ModalContainer';
+import ConverterContainer from '../../containers/ConverterContainer';
 
 export default class BalanceSlider extends Component {
   componentDidMount() {
+    this.timer = setInterval(() => this.requestData(), 1000 * 60 * 10);
+    this.requestData();
+  }
+
+  requestData() {
     const { currentBalance } = this.props;
-    this.timer = setInterval(() => this.props.getCurrentQuoation(currentBalance), 1000 * 60);
     this.props.getCurrentQuoation(currentBalance);
+    this.props.getAllCurrencies();
   }
 
   componentWillUnmount() {
@@ -29,7 +35,7 @@ export default class BalanceSlider extends Component {
 
   render() {
     const settings = {
-      dots: true,
+      dots: false,
       className: "center",
       centerMode: true,
       infinite: true,
@@ -45,13 +51,20 @@ export default class BalanceSlider extends Component {
       <div className='simple-slider'>
         <h2 className='title'>{ this.props.title }</h2>
         {
-          this.props.isShowModal ? <Modal /> : null
+          this.props.isShowModal ?
+            <Modal>
+              <ConverterContainer {...this.props} />
+            </Modal> :
+            null
         }
         <Slider {...settings}>{ this.renderBalanceWidget() }</Slider>
-        <Button
-          title="exchange"
-          onClick={() => this.props.showModal()}
-          />
+        <div className='exchange-area'>
+          <Button
+            title="exchange"
+            icon="refresh"
+            onClick={() => this.props.showModal()}
+            />
+        </div>
       </div>
     );
   }
