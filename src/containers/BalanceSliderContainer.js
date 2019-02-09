@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
 import * as actionTypes from '../constants/ActionTypes';
 import BalanceSlider from '../components/BalanceSlider';
-import { getCurrentBalanceCurrency, getCurrentBalance } from '../utils/GeneralUtils';
+import { getCurrentBalanceCurrency, getCurrentBalance } from '../utils/BalanceUtils';
 
 const mapStateToProps = state => {
   return {

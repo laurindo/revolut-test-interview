@@ -11,8 +11,8 @@ import '../components/Converter/style.css';
 
 class ConverterContainer extends Component {
   componentDidMount() {
-    const { balances, mountSelectCurrencies, currentBalance } = this.props;
-    mountSelectCurrencies(balances, currentBalance);
+    const { balances, mountSelectCurrencies, currentBalance, convertedValues } = this.props;
+    mountSelectCurrencies(balances, currentBalance, convertedValues);
   }
 
   render() {
@@ -47,6 +47,7 @@ class ConverterContainer extends Component {
               options={this.props.currencies}  />
 
             <InputNumber
+              readonly={true}
               onChange={this.props.changeValueConverted}
               value={this.props.valueConverted} />
           </div>
@@ -70,17 +71,19 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    mountSelectCurrencies: (balances, currentBalance) => {
-      dispatch(converterActions.mountSelectCurrencies(balances, currentBalance));
+    mountSelectCurrencies: (balances, currentBalance, convertedValues) => {
+      dispatch(converterActions.mountSelectCurrencies(balances, currentBalance, convertedValues));
     },
     selectCurrency: value => {
       dispatch({ type: actionTypes.SELECT_CURRENCY, payload: value });
     },
     selectCurrencyConversion: value => {
       dispatch({ type: actionTypes.SELECT_CURRENCY_CONVERSION, payload: value });
+      dispatch({ type: actionTypes.CHANGE_VALUE_CONVERTED_FROM_COMBOBOX });
     },
     changeValueSelected: value => {
       dispatch({ type: actionTypes.CHANGE_VALUE_SELECTED, payload: value });
+      dispatch({ type: actionTypes.CHANGE_VALUE_CONVERTED, payload: value });
     },
     changeValueConverted: value => {
       dispatch({ type: actionTypes.CHANGE_VALUE_CONVERTED, payload: value });

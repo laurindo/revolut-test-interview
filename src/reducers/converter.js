@@ -1,4 +1,11 @@
 import * as types from '../constants/ActionTypes';
+import {
+  validateCurrencyNumber,
+  convertNumber,
+  keepNumberPositive,
+} from '../utils/GeneralUtils';
+
+import { getValueFromQuotation } from '../utils/QuotationUtils';
 
 const initialState = {
   currencies: [],
@@ -19,13 +26,19 @@ export default function converter(state = initialState, action) {
     case types.CHANGE_VALUE_SELECTED:
       return {
         ...state,
-        valueSelected: action.payload,
+        valueSelected: validateCurrencyNumber(action.payload),
       };
 
     case types.CHANGE_VALUE_CONVERTED:
       return {
         ...state,
-        valueConverted: action.payload,
+        valueConverted: keepNumberPositive(convertNumber(action.payload, state.selectedCurrencyConversion.quotation)),
+      };
+
+    case types.CHANGE_VALUE_CONVERTED_FROM_COMBOBOX:
+      return {
+        ...state,
+        valueConverted: keepNumberPositive(convertNumber(state.valueSelected, state.selectedCurrencyConversion.quotation)),
       };
 
     case types.SELECT_CURRENCY_CONVERSION:
@@ -42,9 +55,12 @@ export default function converter(state = initialState, action) {
           value: action.payload.currentBalance.value,
         },
         currencies: action.payload.balances.map(balance => {
+          const currencySelected = action.payload.currentBalance.currency;
+          const quotations = action.payload.quotations;
           return {
             label: balance.currency,
             value: balance.value,
+            quotation: getValueFromQuotation(currencySelected, balance.currency, quotations),
           };
         }),
       };

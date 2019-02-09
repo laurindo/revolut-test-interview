@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { calculateBalanceTotal } from '../../utils/GeneralUtils';
+import { calculateBalanceTotal } from '../../utils/BalanceUtils';
 import SimpleGridList from '../SimpleGridList';
 import Loading from '../Loading';
 import './style.css';
