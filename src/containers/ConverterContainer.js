@@ -6,6 +6,7 @@ import Currency from '../components/Currency';
 import Title from '../components/Title';
 import ValueNumber from '../components/ValueNumber';
 import InputNumber from '../components/InputNumber';
+import Quotation from '../components/Quotation';
 
 import '../components/Converter/style.css';
 
@@ -26,32 +27,67 @@ class ConverterContainer extends Component {
           <ValueNumber value={ this.props.currentBalance.value } />
         </div>
 
-        <div className="converter-widget">
-          <div className="fields">
+        <div className="converter-widget container">
+          <div className="col-xs-12 col-sm-4 col-md-4">
             <Currency
               changeCurrency={this.props.selectCurrency}
               selectedCurrency={this.props.selectedCurrency}
               options={this.props.currencies}  />
+          </div>
 
+          <div className="col-xs-12 col-sm-4 col-md-4">
+            <Quotation
+              value={ 1 }
+              symbol={ this.props.currentBalance.symbol }
+              currency={ this.props.currentBalance.currency }
+              />
+
+            <Quotation
+              value={ 1.34 }
+              symbol={ "#" }
+              currency={ this.props.selectedCurrencyConversion.label }
+              />
+          </div>
+
+          <div className="col-xs-12 col-sm-4 col-md-4">
             <InputNumber
               onChange={this.props.changeValueSelected}
               value={this.props.valueSelected} />
           </div>
         </div>
 
-        <div className="converter-widget">
-          <div className="fields">
+        <hr />
+
+        <div className="converter-widget container">
+          <div className="col-xs-12 col-sm-4 col-md-4">
             <Currency
               changeCurrency={this.props.selectCurrencyConversion}
               selectedCurrency={this.props.selectedCurrencyConversion}
               options={this.props.currencies}  />
+          </div>
 
+          <div className="col-xs-12 col-sm-4 col-md-4">
+            <Quotation
+              value={ 1 }
+              symbol={ this.props.currentBalance.symbol }
+              currency={ this.props.currentBalance.currency }
+              />
+
+            <Quotation
+              value={ 1.34 }
+              symbol={ "#" }
+              currency={ this.props.selectedCurrencyConversion.label }
+              />
+          </div>
+
+          <div className="col-xs-12 col-sm-4 col-md-4">
             <InputNumber
               readonly={true}
               onChange={this.props.changeValueConverted}
               value={this.props.valueConverted} />
           </div>
         </div>
+
       </div>
     );
   }

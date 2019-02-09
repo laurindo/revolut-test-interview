@@ -1,14 +1,18 @@
-$base-color: #AD141E;
+$background: #f3f3f3;
+$white: #fff;
+$gray: #8c8d8e;
+$strongBlue: #0794d2;
+$lightBlue: #52c3e7;
+$shadowBlue: #94c8ec;
 
-$revolut-colors: (
-  'background': #f3f3f3,
-  'gray': #8c8d8e,
-  'blueStrong': #0794d2,
-  'blueLight': #52c3e7,
-  'blueShadow': #94c8ec,
-  'white': #fff,
-);
+/* BUTTON */
+$btnColor: #a9a9a9;
+$btnBgColor: #ebedf0;
+$btnBorderColor: #d6d7d8;
 
-@function get-color($key: 'gray') {
-  @return map-get($revolut-colors, $key);
-}
+/* primary */
+$btnShadowGray: #d6e2e8;
+
+/* secondary */
+$btnShadowBlue: #0f5092;
+

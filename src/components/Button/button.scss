@@ -1,0 +1,19 @@
+@import '../../styles/scss/colors.scss';
+
+button {
+  padding: 10px 20px;
+  border-radius: 10px;
+  border: solid 1px $btnBorderColor;
+  font-size: 2em;
+  background-color: $btnBgColor;
+  cursor: pointer;
+  color: $btnColor;
+
+  &.primary {
+    box-shadow: $btnShadowGray 1px 4px 7px 0px;
+  }
+
+  &.secondary {
+    box-shadow: $btnShadowBlue 1px 4px 7px 0px;
+  }
+}

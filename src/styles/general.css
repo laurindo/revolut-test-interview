@@ -8,3 +8,7 @@ body {
   background-color: #f3f3f3;
   font-family: 'Varela Round', sans-serif;
 }
+
+hr {
+  border-top: 1px solid #1f75c1;
+}

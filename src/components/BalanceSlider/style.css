@@ -3,7 +3,9 @@
 }
 
 .simple-slider .title {
-  color: #0e5fa6;
+  color: #959698;
+  font-size: 2em;
+  text-align: center;
 }
 
 .simple-slider .slider-widget .content {
@@ -18,6 +20,7 @@
   color: #1d2552;
   margin: 10px;
   flex-direction: column;
+  justify-content: center;
 }
 
 .simple-slider .slider-widget p {
@@ -25,12 +28,8 @@
   font-size: 1.2em;
 }
 
-.simple-slider .slider-widget h3 {
-  color: #0c5da5;
-}
-
-.simple-slider .slider-widget h4 {
-  color: #0c5da5;
+.simple-slider .slider-widget h3, h4 {
+  color: #fff;
 }
 
 .simple-slider .slick-current .content {

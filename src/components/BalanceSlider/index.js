@@ -62,6 +62,7 @@ export default class BalanceSlider extends Component {
           <Button
             title="exchange"
             icon="refresh"
+            className="primary"
             onClick={() => this.props.showModal()}
             />
         </div>

@@ -1,4 +1,4 @@
-button.btnSave {
+button.primary {
   padding: 10px 20px;
   border-radius: 10px;
   border: solid 1px #d6d7d8;
@@ -6,5 +6,16 @@ button.btnSave {
   background-color: #ebedf0;
   box-shadow: #d6e2e8 1px 4px 7px 0px;
   cursor: pointer;
-  color: #0e5fb7;
+  color: #a9a9a9;
+}
+
+button.secondary {
+  padding: 10px 20px;
+  border-radius: 10px;
+  border: solid 1px #d6d7d8;
+  font-size: 2em;
+  background-color: #ebedf0;
+  cursor: pointer;
+  color: #a9a9a9;
+  box-shadow: #0f5092 1px 4px 7px 0px;
 }

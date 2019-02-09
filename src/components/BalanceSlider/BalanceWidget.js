@@ -7,7 +7,6 @@ class BalanceWidget extends Component {
     return (
       <div className='slider-widget'>
         <div className='content'>
-          <p>{title} { currentQuotation }</p>
           <h3>{balance.symbol} {balance.value}</h3>
           <h4>{balance.currency}</h4>
         </div>

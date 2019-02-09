@@ -7,8 +7,15 @@ class Modal extends Component {
     return (
       <div className='modal'>
         <div className='modal_inner'>
-          { this.props.children }
-          <Button title="Close Me" onClick={() => this.props.hideModal()} />
+          <div>
+            { this.props.children }
+          </div>
+          <div className="footer">
+            <Button
+              className="secondary"
+              title="close"
+              onClick={ () => this.props.hideModal() } />
+          </div>
         </div>
       </div>
     );

@@ -1,0 +1,15 @@
+/* BUTTON */
+/* primary */
+/* secondary */
+button {
+  padding: 10px 20px;
+  border-radius: 10px;
+  border: solid 1px #d6d7d8;
+  font-size: 2em;
+  background-color: #ebedf0;
+  cursor: pointer;
+  color: #a9a9a9; }
+  button.primary {
+    box-shadow: #d6e2e8 1px 4px 7px 0px; }
+  button.secondary {
+    box-shadow: #0f5092 1px 4px 7px 0px; }

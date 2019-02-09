@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import './style.css';
+import './button.css';
 
 export default class Button extends Component {
   handleClick = () => {
@@ -7,11 +7,11 @@ export default class Button extends Component {
   }
 
   render() {
-    const { disabled, icon, title } = this.props;
+    const { disabled, icon, title, className } = this.props;
     return (
       <button
         disabled={disabled}
-        className="btnSave"
+        className={className}
         onClick={() => this.handleClick() }>
           { icon ? <i className={"fa fa-" + this.props.icon}></i> : title }
       </button>

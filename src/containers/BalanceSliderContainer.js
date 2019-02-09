@@ -12,7 +12,7 @@ const mapStateToProps = state => {
   };
 };
 
-function mapDispatchToProps(dispatch) {
+const mapDispatchToProps = dispatch => {
   return {
     slideWidget: (selectedCurrency, balances) => {
       dispatch({ type: actionTypes.CHANGE_BALANCE, payload: getCurrentBalance(balances, selectedCurrency) });
@@ -28,7 +28,7 @@ function mapDispatchToProps(dispatch) {
       dispatch({ type: actionTypes.REQUEST_QUOTATION, payload: currentBalance });
     },
   };
-}
+};
 
 export default connect(
   mapStateToProps,

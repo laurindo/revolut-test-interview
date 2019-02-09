@@ -20,4 +20,11 @@
   background: rgb(28,142,240);
   background: radial-gradient(circle, rgba(28,142,240,1) 0%, rgba(16,104,195,1) 100%);
   border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.modal_inner .footer {
+  margin: 35px auto;
 }
