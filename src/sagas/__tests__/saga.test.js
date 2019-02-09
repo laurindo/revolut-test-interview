@@ -1,6 +1,16 @@
-import getCurrencyNamesSaga from '../sagas';
+import { select, put, call, take } from 'redux-saga/effects';
+import * as actionTypes from '../../constants/ActionTypes';
+import getQuotationSaga, { callGetQuotationSaga } from '../quotation-sagas';
 
-test('TEsting Saga', () => {
-  const res = getCurrencyNamesSaga();
-  console.log(res.next());
+describe('SAGAS', () => {
+  //let gen = null;
+
+  beforeAll(() => {
+    //gen = getQuotationSaga();
+  });
+
+  test('should get quotations', () => {
+    const gen = callGetQuotationSaga({});
+    //console.log(gen.next());
+  });
 });

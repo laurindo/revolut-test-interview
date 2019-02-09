@@ -4,8 +4,11 @@ import ExhangeRateEndpointService from '../utils/ExchangeRateEndpointutil';
 import { formatValueToCurrency } from '../utils/GeneralUtils';
 
 // Getting quotation values
-function* callGetQuotationSaga(action) {
+export function* callGetQuotationSaga(action) {
   const result = yield call(ExhangeRateEndpointService.getQuotation, action.payload);
+  console.log("===================================");
+  console.log(result);
+  console.log("===================================");
   const currentValue = result.data.rates[action.payload.currency];
   const valueFormatted = formatValueToCurrency().format(currentValue);
   yield put({ type: actionTypes.SUCCESS_QUOTATION, payload: valueFormatted });
