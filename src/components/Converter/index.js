@@ -1,27 +1,86 @@
-import React, { Component } from 'react';
+import React from 'react';
 import Currency from '../Currency';
+import ValueNumber from '../ValueNumber';
+import InputNumber from '../InputNumber';
+import Title from '../Title';
+import Quotation from '../Quotation';
 
-class Converter extends Component {
-  componentDidMount() {
-    //this.timer = setInterval(() => this.props.onRequest(), 1000 * 60);
-    this.props.onRequest();
-  }
+import './style.css';
 
-  componentWillUnmount() {
-    clearInterval(this.timer);
-    this.timer = null;
-  }
+const Converter = (props) => (
+  <div className="converter-area">
+    <div className="head">
+      <Title
+        title="Balance"
+        className="secondary" />
 
-  render() {
-    return (
-      <div>
+      <ValueNumber value={ props.currentBalance.currency.toString() } />
+      <ValueNumber value={ props.currentBalance.symbol.toString() } />
+      <ValueNumber value={ props.currentBalance.value.toString() } />
+    </div>
+
+    <div className="converter-widget container">
+      <div className="col-xs-12 col-sm-4 col-md-4">
         <Currency
-          changeCurrency={this.props.changeCurrency}
-          selectedCurrency={this.props.selectedCurrency}
-          options={this.props.currencies}  />
+          changeCurrency={ props.selectCurrency }
+          selectedCurrency={ props.selectedCurrency }
+          options={ props.currencies }  />
       </div>
-    );
-  }
-}
+
+      <div className="col-xs-12 col-sm-4 col-md-4">
+        <Quotation
+          value={ 1 }
+          symbol={ props.currentBalance.symbol }
+          currency={ props.currentBalance.currency }
+          />
+
+        <Quotation
+          value={ 1.34 }
+          symbol={ "#" }
+          currency={ props.selectedCurrencyConversion.label }
+          />
+      </div>
+
+      <div className="col-xs-12 col-sm-4 col-md-4">
+        <InputNumber
+          onChange={ props.changeValueSelected }
+          value={ props.valueSelected } />
+      </div>
+    </div>
+
+    <hr />
+
+    <div className="converter-widget container">
+      <div className="col-xs-12 col-sm-4 col-md-4">
+        <Currency
+          changeCurrency={ props.selectCurrencyConversion }
+          selectedCurrency={ props.selectedCurrencyConversion }
+          options={ props.currencies }  />
+      </div>
+
+      <div className="col-xs-12 col-sm-4 col-md-4">
+        <Quotation
+          value={ 1 }
+          symbol={ props.currentBalance.symbol }
+          currency={ props.currentBalance.currency }
+          />
+
+        <Quotation
+          value={ 1.34 }
+          symbol={ "#" }
+          currency={ props.selectedCurrencyConversion.label }
+          />
+      </div>
+
+      <div className="col-xs-12 col-sm-4 col-md-4">
+        <InputNumber
+          readonly={ true }
+          onChange={ props.changeValueConverted}
+          value={ props.valueConverted } />
+      </div>
+    </div>
+
+  </div>
+);
 
 export default Converter;

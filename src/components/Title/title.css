@@ -1,0 +1,10 @@
+/* BUTTON */
+/* primary */
+/* secondary */
+h2 {
+  font-size: 2em;
+  text-align: center; }
+  h2.primary {
+    color: #8c8d8e; }
+  h2.secondary {
+    color: #fff; }

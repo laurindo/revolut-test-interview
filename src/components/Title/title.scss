@@ -1,0 +1,14 @@
+@import '../../styles/scss/colors.scss';
+
+h2 {
+  font-size: 2em;
+  text-align: center;
+
+  &.primary {
+    color: $gray;
+  }
+
+  &.secondary {
+    color: $white;
+  }
+}

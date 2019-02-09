@@ -9,7 +9,7 @@ const Quotation = ({ symbol, currency, value }) => (
 Quotation.propTypes = {
   symbol: PropTypes.string.isRequired,
   currency: PropTypes.string.isRequired,
-  value: PropTypes.string.isRequired,
+  value: PropTypes.number.isRequired,
 };
 
 export default Quotation;
