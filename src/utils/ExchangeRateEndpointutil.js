@@ -3,7 +3,7 @@ import axios from 'axios';
 const API_ID = 'ac12a3f536f347db9a29194a5eee8e9c';
 
 export default class ExchangeRateEndpointUtil {
-  static getConvertedCurrencyList(currency) {
+  static getConvertedCurrencyList(currency = 'USD') {
     return axios({
       method: 'get',
       url: `https://currencydatafeed.com/api/data.php?token=k91o1hxqymhjvj1xdsn7&currency=${currency}/EUR+${currency}/USD+${currency}/GBP+${currency}/BRL`,

@@ -8,7 +8,7 @@
  * The result must be:
  * [{ currency: 'USD/GBP' }]
  */
-export const getSpecificQuotation = (currencySelected = 'USD', currencyToConvert = '', quotations) => {
+export const getSpecificQuotation = (currencySelected = 'USD', currencyToConvert = '', quotations = []) => {
   return quotations.filter(quotation => {
     return quotation.currency === `${currencySelected}/${currencyToConvert}`;
   });
@@ -20,6 +20,6 @@ export const getValueFromQuotation = (currencySelected = 'USD', currencyToConver
       return quotation.currency === `${currencySelected}/${currencyToConvert}`;
     }).value;
   } catch (error) {
-    return 0;
+    return '0';
   }
 };

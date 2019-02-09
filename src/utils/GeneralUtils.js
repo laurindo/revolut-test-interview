@@ -13,15 +13,18 @@ export const getSelectOptionsFormatted = (response = {}) => {
   });
 };
 
-export const formatValueToCurrency = (currency = 'USD', digits = 2) => {
-  const formatter = new Intl.NumberFormat('en-US', {
+export const formatValueToCurrency = (currency = 'USD', digits = 2, languageCode = 'en-US') => {
+  const formatter = new Intl.NumberFormat(languageCode, {
     style: 'currency',
     currency,
     minimumFractionDigits: digits
   });
   return {
     format: (value) => {
-      return formatter.format(value);
+      if (isNumber(value) || typeof value === 'string') {
+        return formatter.format(value);
+      }
+      return '$ 0.00';
     },
   };
 };
@@ -48,7 +51,7 @@ export const convertNumber = (value = 0, quotation = 0) => {
     const numberCalculated = parseFloat(value) * quotation;
     return showValueFormatted(numberCalculated);
   }
-  return 0;
+  return '0.00';
 };
 
 export const showValueFormatted = (value = 0, digits = 2) => {
@@ -60,5 +63,8 @@ export const isNumber = (value) => {
 }
 
 export const keepNumberPositive = (value = 0) => {
-  return Math.abs(value);
+  if (isNumber(value)) {
+    return Math.abs(value);
+  }
+  return 0;
 };
