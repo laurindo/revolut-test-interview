@@ -1,12 +1,12 @@
 import axios from 'axios';
 
-const API_ID = 'ac12a3f536f347db9a29194a5eee8e9c';
+const API_ID = 'fa2444ba0dbb4fe8beda1fce0b2b628c';
 
 export default class ExchangeRateEndpointUtil {
   static getConvertedCurrencyList(currency = 'USD') {
     return axios({
       method: 'get',
-      url: `https://currencydatafeed.com/api/data.php?token=k91o1hxqymhjvj1xdsn7&currency=${currency}/EUR+${currency}/USD+${currency}/GBP+${currency}/BRL`,
+      url: `https://currencydatafeed.com/api/data.php?token=9e5tyiptom99lizqlo2s&currency=${currency}/EUR+${currency}/USD+${currency}/GBP+${currency}/BRL`,
     });
   }
 

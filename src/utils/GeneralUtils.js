@@ -1,3 +1,5 @@
+import Pooling from '../config/configurePooling';
+
 export const getUID = () => {
   function s4() {
     return Math.floor((1 + Math.random()) * 0x10000)
@@ -62,4 +64,15 @@ export const keepNumberPositive = (value = 0) => {
     return Math.abs(value);
   }
   return 0;
+};
+
+export const startPooling = (callback) => {
+  return setInterval(() => {
+    callback();
+  }, Pooling.TIMER);
+};
+
+export const closePooling = (timer) => {
+  clearInterval(timer);
+  return null;
 };

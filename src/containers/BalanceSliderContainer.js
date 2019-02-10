@@ -4,6 +4,7 @@ import * as actionTypes from '../constants/ActionTypes';
 import BalanceSlider from '../components/BalanceSlider';
 import BalanceWidget from '../components/BalanceSlider/BalanceWidget';
 import { getCurrentBalanceCurrency, getCurrentBalance } from '../utils/BalanceUtils';
+import { startPooling, closePooling } from '../utils/GeneralUtils';
 
 class BalanceSliderContainer extends Component {
   constructor(props) {
@@ -23,19 +24,18 @@ class BalanceSliderContainer extends Component {
   }
 
   componentDidMount() {
-    this.timer = setInterval(() => this.requestData(), 1000 * 60 * 10);
     this.requestData();
   }
 
   requestData() {
     const { currentBalance } = this.props;
+    this.timer = startPooling(this.requestData.bind(this));
     this.props.getCurrentQuoation(currentBalance);
     this.props.getAllCurrencies();
   }
 
   componentWillUnmount() {
-    clearInterval(this.timer);
-    this.timer = null;
+    this.timer = closePooling(this.timer);
   }
 
   renderBalanceWidget() {
