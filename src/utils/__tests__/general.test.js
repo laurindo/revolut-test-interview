@@ -38,12 +38,11 @@ describe('GENERAL UTILS', () => {
     expect(typeof formatter).toBe('object');
 
     let result = formatter.format();
-    expect(result).toBe('$ 0.00');
+    expect(result).toBe('0.00');
 
     formatter = formatValueToCurrency('BRL', 2, 'pt-BR');
-    result = formatter.format('45');
-    expect(result.indexOf('R$')).toBe(0);
-    expect(result.indexOf('45')).toBe(3);
+    result = formatter.format(45);
+    expect(result).toBe('45.00');
   });
 
   test('should return a valid currency - validateCurrencyNumber()', () => {

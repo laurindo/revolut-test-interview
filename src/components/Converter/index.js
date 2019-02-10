@@ -14,8 +14,8 @@ const Converter = (props) => (
         title="Balance"
         className="secondary" />
 
-      <ValueNumber value={ props.currentBalance.currency.toString() } />
-      <ValueNumber value={ props.currentBalance.symbol.toString() } />
+      <ValueNumber value={ props.currentBalance.label } />
+      <ValueNumber value={ props.currentBalance.symbol } />
       <ValueNumber value={ props.currentBalance.value.toString() } />
     </div>
 
@@ -44,7 +44,7 @@ const Converter = (props) => (
       <div className="col-xs-12 col-sm-4 col-md-4">
         <InputNumber
           onChange={ props.changeValueSelected }
-          value={ props.valueSelected } />
+          value={ props.valueSelected.toString() } />
       </div>
     </div>
 
@@ -76,7 +76,7 @@ const Converter = (props) => (
         <InputNumber
           readonly={ true }
           onChange={ props.changeValueConverted}
-          value={ props.valueConverted } />
+          value={ props.valueConverted.toString() } />
       </div>
     </div>
 

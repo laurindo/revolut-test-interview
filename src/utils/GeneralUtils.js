@@ -7,6 +7,10 @@ export const getUID = () => {
   return s4() + s4() + '-' + s4() + '-' + s4() + '-' + s4() + '-' + s4() + s4() + s4();
 };
 
+export const isNumber = (value) => {
+  return !isNaN(parseFloat(value)) && isFinite(value);
+}
+
 export const getSelectOptionsFormatted = (response = {}) => {
   return Object.keys(response).map(keyName => {
     return { value: response[keyName], label: keyName };
@@ -14,17 +18,12 @@ export const getSelectOptionsFormatted = (response = {}) => {
 };
 
 export const formatValueToCurrency = (currency = 'USD', digits = 2, languageCode = 'en-US') => {
-  const formatter = new Intl.NumberFormat(languageCode, {
-    style: 'currency',
-    currency,
-    minimumFractionDigits: digits
-  });
   return {
     format: (value) => {
       if (isNumber(value) || typeof value === 'string') {
-        return formatter.format(value);
+        return value.toFixed(2);
       }
-      return '$ 0.00';
+      return '0.00';
     },
   };
 };
@@ -46,6 +45,10 @@ export const validateCurrencyNumber = (value = '') => {
   return valueFormatted;
 };
 
+export const showValueFormatted = (value = 0, digits = 2) => {
+  return value.toFixed(digits);
+};
+
 export const convertNumber = (value = 0, quotation = 0) => {
   if (isNumber(value)) {
     const numberCalculated = parseFloat(value) * quotation;
@@ -53,14 +56,6 @@ export const convertNumber = (value = 0, quotation = 0) => {
   }
   return '0.00';
 };
-
-export const showValueFormatted = (value = 0, digits = 2) => {
-  return value.toFixed(digits);
-};
-
-export const isNumber = (value) => {
-  return !isNaN(parseFloat(value)) && isFinite(value);
-}
 
 export const keepNumberPositive = (value = 0) => {
   if (isNumber(value)) {

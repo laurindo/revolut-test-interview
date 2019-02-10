@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 class BalanceWidget extends Component {
   render() {
-    const { title, currentQuotation, balance } = this.props;
+    const { balance } = this.props;
     return (
       <div className='slider-widget'>
         <div className='content'>
@@ -17,7 +17,6 @@ class BalanceWidget extends Component {
 
 BalanceWidget.propTypes = {
   balances: PropTypes.array.isRequired,
-  currentQuotation: PropTypes.number.isRequired,
 };
 
 export default BalanceWidget;

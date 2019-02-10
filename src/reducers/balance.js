@@ -1,26 +1,11 @@
 import * as types from '../constants/ActionTypes';
-
-const balances = [{
-  currency: 'USD',
-  value: 90.08,
-  symbol: '$',
-}, {
-  currency: 'GBP',
-  value: 290.08,
-  symbol: '£',
-}, {
-  currency: 'EUR',
-  value: 190.08,
-  symbol: '€',
-}];
+import MockPockets from '../constants/MockPockets';
 
 const initialState = {
-  balances,
-  currentBalance: balances[0],
+  balances: MockPockets,
+  currentBalance: MockPockets[0],
   currentQuotation: 0,
 };
-
-console.log(initialState.currentBalance);
 
 export default function balance(state = initialState, action) {
   switch (action.type) {
@@ -33,7 +18,10 @@ export default function balance(state = initialState, action) {
     case types.SELECT_CURRENCY:
       return {
         ...state,
-        currentBalance: action.payload,
+        currentBalance: {
+          ...state.currentBalance,
+          ...action.payload,
+        },
       };
 
     case types.CHANGE_BALANCE:

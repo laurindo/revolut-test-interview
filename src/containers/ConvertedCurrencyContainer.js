@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import * as types from '../constants/ActionTypes';
-import { calculateBalanceTotal } from '../utils/BalanceUtils';
+import { formatCurrenciesToGrid } from '../utils/BalanceUtils';
 import ConvertedCurrencyGrid from '../components/ConvertedCurrencyGrid';
 
 class ConvertedCurrencyGridContainer extends Component {
@@ -16,12 +16,8 @@ class ConvertedCurrencyGridContainer extends Component {
   }
 
   currencyConversion() {
-    console.log('');
     const { convertedValues, currentBalance } = this.props;
-    return convertedValues.map(currency => {
-      const total = calculateBalanceTotal(currentBalance.value, currency.value);
-      return [currency.currency, currency.value, total];
-    });
+    return formatCurrenciesToGrid(convertedValues, currentBalance);
   }
 
   render() {

@@ -58,24 +58,24 @@ describe('BALANCE UTILS', () => {
 
   test('should return my balance formatted - calculateBalanceTotal()', () => {
     let result = calculateBalanceTotal();
-    expect(result).toBe('$0.00');
+    expect(result).toBe('0.00');
 
     result = calculateBalanceTotal('12', 1.2);
-    expect(result).toBe('$14.40');
+    expect(result).toBe('14.40');
 
     result = calculateBalanceTotal('12', '1.2');
-    expect(result).toBe('$14.40');
+    expect(result).toBe('14.40');
 
     result = calculateBalanceTotal('0', '1.2');
-    expect(result).toBe('$0.00');
+    expect(result).toBe('0.00');
 
     result = calculateBalanceTotal([], []);
-    expect(result).toBe('$0.00');
+    expect(result).toBe('0.00');
 
     result = calculateBalanceTotal(false, false);
-    expect(result).toBe('$0.00');
+    expect(result).toBe('0.00');
 
     result = calculateBalanceTotal(true, true);
-    expect(result).toBe('$0.00');
+    expect(result).toBe('0.00');
   });
 });

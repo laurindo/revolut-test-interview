@@ -1,4 +1,4 @@
-import { formatValueToCurrency, isNumber } from './GeneralUtils';
+import { formatValueToCurrency, isNumber, showValueFormatted } from './GeneralUtils';
 import { getValueFromQuotation } from './QuotationUtils';
 
 export const getBalanceSelectOptionsFormatted = (balances = [], action) => {
@@ -42,8 +42,16 @@ export const calculateBalanceTotal = (currentBalance = 0, unitValue = 0) => {
       const Formatter = formatValueToCurrency();
       return Formatter.format(_currentBalance * _unitValue);
     }
-    return '$0.00';
+    return '0.00';
   } catch (error) {
-    return '$0.00';
+    return '0.00';
   }
+};
+
+export const formatCurrenciesToGrid = (convertedValues, currentBalance) => {
+  return convertedValues.map(currency => {
+    const total = calculateBalanceTotal(currentBalance.value, currency.value);
+    const value = showValueFormatted(parseFloat(currency.value));
+    return [currency.currency, `${currentBalance.symbol} ${value}`, `${currentBalance.symbol} ${total}`];
+  });
 };
