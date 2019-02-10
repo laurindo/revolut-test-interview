@@ -8,7 +8,7 @@ export default class ExchangeRateEndpointUtil {
   static getConvertedCurrencyList(currency = 'USD') {
     return axios({
       method: 'get',
-      url: `https://currencydatafeed.com/api/data.php?token=${TOKEN_CURRENCY_DATA_FEED}&currency=${currency}/EUR+${currency}/USD+${currency}/GBP+${currency}/BRL`,
+      url: `https://currencydatafeed.com/api/data.php?token=${TOKEN_CURRENCY_DATA_FEED}&currency=${currency}/EUR+${currency}/AUD+${currency}/GBP+${currency}/BRL+${currency}/CAD`,
     });
   }
 

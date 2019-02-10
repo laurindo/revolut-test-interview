@@ -10,9 +10,15 @@ class ConverterContainer extends Component {
     mountSelectCurrencies(balances, currentBalance, convertedValues);
   }
 
+  formatDigits(value) {
+    return parseFloat(value).toFixed(2);
+  }
+
   render() {
     return (
-      <Converter {...this.props} />
+      <Converter
+        formatDigits={ this.formatDigits.bind(this) }
+        {...this.props} />
     );
   }
 }

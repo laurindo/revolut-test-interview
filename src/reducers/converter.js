@@ -6,8 +6,8 @@ import {
 } from '../utils/GeneralUtils';
 
 import { getDefaultBalanceCurrencyConversion } from '../utils/BalanceUtils';
-
 import { getValueFromQuotation, calculatingQuotation } from '../utils/QuotationUtils';
+import { showValueFormatted } from '../utils/GeneralUtils';
 
 const initialState = {
   currencies: [],
@@ -40,7 +40,7 @@ export default function converter(state = initialState, action) {
     case types.CHANGE_VALUE_SELECTED:
       return {
         ...state,
-        valueSelected: validateCurrencyNumber(action.payload),
+        valueSelected: validateCurrencyNumber(showValueFormatted(action.payload)),
       };
 
     case types.CHANGE_VALUE_CONVERTED:

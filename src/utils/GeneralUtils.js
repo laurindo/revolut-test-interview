@@ -48,7 +48,7 @@ export const validateCurrencyNumber = (value = '') => {
 };
 
 export const showValueFormatted = (value = 0, digits = 2) => {
-  return value.toFixed(digits);
+  return parseFloat(value).toFixed(digits);
 };
 
 export const convertNumber = (value = 0, quotation = 0) => {

@@ -3,10 +3,10 @@
  * It's recommended come from the Back-End or some external API
  */
 export default [{
-  currency: 'USD',
+  currency: 'AUD',
   value: 90.08,
-  symbol: '$',
-  label: 'USD',
+  symbol: 'A$',
+  label: 'AUD',
 }, {
   currency: 'GBP',
   value: 290.08,
@@ -17,4 +17,9 @@ export default [{
   value: 190.08,
   symbol: '€',
   label: 'EUR',
+}, {
+  currency: 'CAD',
+  value: 23.08,
+  symbol: 'C$',
+  label: 'CAD',
 }];
