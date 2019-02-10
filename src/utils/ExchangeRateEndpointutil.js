@@ -1,19 +1,21 @@
 import axios from 'axios';
+import configureAPIToken from '../config/configureAPIToken';
 
-const API_ID = 'fa2444ba0dbb4fe8beda1fce0b2b628c';
+const TOKEN_EXCHANGE_RATES = configureAPIToken.TOKEN_EXCHANGE_RATES;
+const TOKEN_CURRENCY_DATA_FEED = configureAPIToken.TOKEN_CURRENCY_DATA_FEED;
 
 export default class ExchangeRateEndpointUtil {
   static getConvertedCurrencyList(currency = 'USD') {
     return axios({
       method: 'get',
-      url: `https://currencydatafeed.com/api/data.php?token=9e5tyiptom99lizqlo2s&currency=${currency}/EUR+${currency}/USD+${currency}/GBP+${currency}/BRL`,
+      url: `https://currencydatafeed.com/api/data.php?token=${TOKEN_CURRENCY_DATA_FEED}&currency=${currency}/EUR+${currency}/USD+${currency}/GBP+${currency}/BRL`,
     });
   }
 
   static getQuotation(params = { symbol: 'USD' }) {
     return axios({
       method: 'get',
-      url: `https://openexchangerates.org/api/latest.json?app_id=${API_ID}&symbols=GBP,EUR,CAD,AUD,USD,BRL,BTC`,
+      url: `https://openexchangerates.org/api/latest.json?app_id=${TOKEN_EXCHANGE_RATES}&symbols=GBP,EUR,CAD,AUD,USD,BRL,BTC`,
     });
   }
 
@@ -42,7 +44,7 @@ export default class ExchangeRateEndpointUtil {
   static convert(value, currentCurrency = 'GBP', targetCurrency = 'EUR') {
     return axios({
       method: 'get',
-      url: `https://openexchangerates.org/api/convert/${value}/${currentCurrency}/${targetCurrency}?app_id=${API_ID}`,
+      url: `https://openexchangerates.org/api/convert/${value}/${currentCurrency}/${targetCurrency}?app_id=${TOKEN_EXCHANGE_RATES}`,
     });
   }
 
