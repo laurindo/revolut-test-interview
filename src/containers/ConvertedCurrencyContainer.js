@@ -33,6 +33,7 @@ class ConvertedCurrencyGridContainer extends Component {
   render() {
     return (
       <ConvertedCurrencyGrid
+        valuesTitle={['Currency', 'Unit Price', 'Balance Total']}
         props={this.props}
         currencyConversion={ this.currencyConversion } />
     );

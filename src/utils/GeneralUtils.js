@@ -69,7 +69,7 @@ export const keepNumberPositive = (value = 0) => {
 export const startPooling = (callback) => {
   return setInterval(() => {
     callback();
-  }, Pooling.TIMER);
+  }, Pooling());
 };
 
 export const closePooling = (timer) => {

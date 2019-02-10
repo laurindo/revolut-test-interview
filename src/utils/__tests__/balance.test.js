@@ -3,6 +3,7 @@ import {
   getCurrentBalanceCurrency,
   getCurrentBalance,
   calculateBalanceTotal,
+  getDefaultBalanceCurrencyConversion,
 } from '../BalanceUtils';
 
 describe('BALANCE UTILS', () => {
@@ -77,5 +78,16 @@ describe('BALANCE UTILS', () => {
 
     result = calculateBalanceTotal(true, true);
     expect(result).toBe('0.00');
+  });
+
+  test('should return the correct result - getDefaultBalanceCurrencyConversion()', () => {
+    const balances = [{"currency":"USD","value":90.08,"symbol":"$","label":"USD"},{"currency":"GBP","value":290.08,"symbol":"£","label":"GBP"},{"currency":"EUR","value":190.08,"symbol":"€","label":"EUR"}];
+    const quotations = [{"currency":"USD/EUR","value":"0.88317","date":"2019-02-10 20:30:18","type":"reversed"},{"currency":"USD/GBP","value":"0.77316","date":"2019-02-10 20:30:18","type":"reversed"},{"currency":"USD/BRL","value":"3.73175","date":"2019-02-10 20:30:18","type":"original"}];
+    const result = getDefaultBalanceCurrencyConversion(balances, quotations);
+
+    expect(result.currency).toBe('EUR');
+    expect(result.value).toBe(190.08);
+    expect(result.symbol).toBe('€');
+    expect(result.label).toBe('EUR');
   });
 });

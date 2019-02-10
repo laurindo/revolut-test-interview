@@ -55,3 +55,9 @@ export const formatCurrenciesToGrid = (convertedValues, currentBalance) => {
     return [currency.currency, `${currentBalance.symbol} ${value}`, `${currentBalance.symbol} ${total}`];
   });
 };
+
+export const getDefaultBalanceCurrencyConversion = (balances, quotations = []) => {
+  return balances.filter(balance => {
+    return balance.currency === quotations[0].currency.substr(4,3);
+  })[0];
+};

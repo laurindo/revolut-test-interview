@@ -5,6 +5,8 @@ import {
   keepNumberPositive,
 } from '../utils/GeneralUtils';
 
+import { getDefaultBalanceCurrencyConversion } from '../utils/BalanceUtils';
+
 import { getValueFromQuotation, calculatingQuotation } from '../utils/QuotationUtils';
 
 const initialState = {
@@ -67,9 +69,7 @@ export default function converter(state = initialState, action) {
         },
         selectedCurrencyConversion: {
           quotation: action.payload.quotations[0].value,
-          ...action.payload.balances.filter(balance => {
-            return balance.currency === action.payload.quotations[0].currency.substr(4,3);
-          })[0],
+          ...getDefaultBalanceCurrencyConversion(action.payload.balances, action.payload.quotations),
         },
         currencies: action.payload.balances.map(balance => {
           const currencySelected = action.payload.currentBalance.currency;

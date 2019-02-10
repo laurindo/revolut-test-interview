@@ -1,10 +1,11 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import SimpleGridList from '../SimpleGridList';
 import Loading from '../Loading';
 
 import './style.css';
 
-const ConvertedCurrencyGrid = ({ props, currencyConversion }) => (
+const ConvertedCurrencyGrid = ({ props, currencyConversion, valuesTitle }) => (
   <div className='container'>
     <div className="row">
       {
@@ -13,12 +14,18 @@ const ConvertedCurrencyGrid = ({ props, currencyConversion }) => (
           <SimpleGridList
             {...props}
             values={ props.convertedValues }
-            valuesTitle={ ['Currency', 'Price Unit', 'Balance Total'] }
+            valuesTitle={ valuesTitle }
             valuesRows={ currencyConversion() }
           />
       }
     </div>
   </div>
 );
+
+ConvertedCurrencyGrid.propTypes = {
+  props: PropTypes.object.isRequired,
+  currencyConversion: PropTypes.func.isRequired,
+  valuesTitle: PropTypes.array.isRequired,
+};
 
 export default ConvertedCurrencyGrid;
