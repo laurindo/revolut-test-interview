@@ -36,6 +36,7 @@ const mapDispatchToProps = dispatch => {
     },
     selectCurrency: value => {
       dispatch({ type: actionTypes.SELECT_CURRENCY, payload: value });
+      dispatch({ type: actionTypes.CHANGE_SELECTED_CURRENCY, payload: value });
     },
     selectCurrencyConversion: value => {
       dispatch({ type: actionTypes.SELECT_CURRENCY_CONVERSION, payload: value });

@@ -5,7 +5,7 @@ import {
   keepNumberPositive,
 } from '../utils/GeneralUtils';
 
-import { getValueFromQuotation } from '../utils/QuotationUtils';
+import { getValueFromQuotation, calculatingQuotation } from '../utils/QuotationUtils';
 
 const initialState = {
   currencies: [],
@@ -14,15 +14,27 @@ const initialState = {
   selectedCurrency: {
     label: '',
     value: 0,
+    symbol: '',
+    quotation: '',
+    currency: '',
   },
   selectedCurrencyConversion: {
     label: '',
     value: 0,
+    symbol: '',
+    quotation: '',
+    currency: '',
   },
 };
 
 export default function converter(state = initialState, action) {
   switch (action.type) {
+    case types.CHANGE_SELECTED_CURRENCY:
+      return {
+        ...state,
+        selectedCurrency: action.payload,
+      };
+
     case types.CHANGE_VALUE_SELECTED:
       return {
         ...state,
@@ -51,15 +63,19 @@ export default function converter(state = initialState, action) {
       return {
         ...state,
         selectedCurrency: {
-          label: action.payload.currentBalance.currency,
-          value: action.payload.currentBalance.value,
+          ...action.payload.currentBalance,
+        },
+        selectedCurrencyConversion: {
+          quotation: action.payload.quotations[0].value,
+          ...action.payload.balances.filter(balance => {
+            return balance.currency === action.payload.quotations[0].currency.substr(4,3);
+          })[0],
         },
         currencies: action.payload.balances.map(balance => {
           const currencySelected = action.payload.currentBalance.currency;
           const quotations = action.payload.quotations;
           return {
-            label: balance.currency,
-            value: balance.value,
+            ...balance,
             quotation: getValueFromQuotation(currencySelected, balance.currency, quotations),
           };
         }),

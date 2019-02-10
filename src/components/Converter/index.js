@@ -27,16 +27,18 @@ const Converter = (props) => (
           options={ props.currencies }  />
       </div>
 
-      <div className="col-xs-12 col-sm-4 col-md-4">
+      <div className="col-xs-12 col-sm-4 col-md-4 compare-quotation">
         <Quotation
           value={ 1 }
           symbol={ props.currentBalance.symbol }
           currency={ props.currentBalance.currency }
           />
 
+          <span> = </span>
+
         <Quotation
-          value={ 1.34 }
-          symbol={ "#" }
+          value={ props.selectedCurrencyConversion.quotation }
+          symbol={ props.selectedCurrencyConversion.symbol }
           currency={ props.selectedCurrencyConversion.label }
           />
       </div>
@@ -58,18 +60,21 @@ const Converter = (props) => (
           options={ props.currencies }  />
       </div>
 
-      <div className="col-xs-12 col-sm-4 col-md-4">
-        <Quotation
+      <div className="col-xs-12 col-sm-4 col-md-4 compare-quotation">
+      <Quotation
           value={ 1 }
+          symbol={ props.selectedCurrencyConversion.symbol }
+          currency={ props.selectedCurrencyConversion.label }
+          />
+
+        <span> = </span>
+
+        <Quotation
+          value={ (1/props.selectedCurrencyConversion.quotation).toFixed(2) }
           symbol={ props.currentBalance.symbol }
           currency={ props.currentBalance.currency }
           />
 
-        <Quotation
-          value={ 1.34 }
-          symbol={ "#" }
-          currency={ props.selectedCurrencyConversion.label }
-          />
       </div>
 
       <div className="col-xs-12 col-sm-4 col-md-4">

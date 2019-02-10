@@ -23,3 +23,15 @@ export const getValueFromQuotation = (currencySelected = 'USD', currencyToConver
     return '0';
   }
 };
+
+export const calculatingQuotation = (payload, selectedCurrencyConversion) => {
+  try {
+    const currency = `${payload.currentBalance.currency}/${selectedCurrencyConversion.currency}`;
+    const quotation = payload.quotations.filter(quotation => {
+      return quotation.currency === currency;
+    });
+    return quotation[0].value;
+  } catch (error) {
+    return '0.00';
+  }
+};

@@ -18,10 +18,7 @@ export default function balance(state = initialState, action) {
     case types.SELECT_CURRENCY:
       return {
         ...state,
-        currentBalance: {
-          ...state.currentBalance,
-          ...action.payload,
-        },
+        currentBalance: action.payload,
       };
 
     case types.CHANGE_BALANCE:

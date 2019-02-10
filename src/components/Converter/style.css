@@ -22,3 +22,8 @@
 .converter-area .head span {
   font-size: 2em;
 }
+
+.converter-widget .compare-quotation {
+  padding: 10px;
+  margin-left: 7px;
+}
