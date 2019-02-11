@@ -4,7 +4,7 @@ ShallowWrapper {
   Symbol(enzyme.__unrendered__): <Quotation
     currency="USD"
     symbol="$"
-    value={12.99} />,
+    value="12.99" />,
   Symbol(enzyme.__renderer__): Object {
     "batchedUpdates": [Function],
     "checkPropTypes": [Function],
@@ -23,7 +23,7 @@ ShallowWrapper {
         " ",
         "$",
         " ",
-        12.99,
+        "12.99",
         " ",
         "USD",
       ],
@@ -34,7 +34,7 @@ ShallowWrapper {
       " ",
       "$",
       " ",
-      12.99,
+      "12.99",
       " ",
       "USD",
     ],
@@ -50,7 +50,7 @@ ShallowWrapper {
           " ",
           "$",
           " ",
-          12.99,
+          "12.99",
           " ",
           "USD",
         ],
@@ -61,7 +61,7 @@ ShallowWrapper {
         " ",
         "$",
         " ",
-        12.99,
+        "12.99",
         " ",
         "USD",
       ],

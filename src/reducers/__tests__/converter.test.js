@@ -30,7 +30,7 @@ describe('Converter Reducer', () => {
     expect(result.selectedCurrency.currency).toEqual('USD');
 
     result = converterReducer(undefined, { type: types.CHANGE_VALUE_SELECTED, payload: '-22' });
-    expect(result.valueSelected).toEqual('-22');
+    expect(result.valueSelected).toEqual('-22.00');
 
     const newExpected = {
       ...expected,
