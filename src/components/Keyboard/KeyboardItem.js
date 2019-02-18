@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 
-const KeyBoardNumber = () => {
+const KeyboardItem = ({ item }) => (
+  <p className='keyboard-item'>{ item }</p>
+);
 
-};
-
-export default KeyBoardNumber;
+export default KeyboardItem;

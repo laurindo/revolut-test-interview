@@ -1,0 +1,22 @@
+.keyboard-wrapper {
+  background-color: aliceblue;
+  .keyboard-row {
+    background-color: burlywood;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .keyboard-item {
+      padding: 10px;
+      background-color: aliceblue;
+      border-radius: 5px;
+      margin: 10px;
+      cursor: pointer;
+      min-width: 25px;
+      color: #000;
+      font-size: 2em;
+      &:hover {
+        box-shadow: #868383 0px 5px 5px 1px;
+      }
+    }
+  }
+}
