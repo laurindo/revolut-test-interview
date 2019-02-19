@@ -6,6 +6,7 @@ const InputNumber = ({ value, readonly = false, onChange }) => (
   <input
     className="input-number"
     readOnly={readonly}
+    placeholder='0'
     type="text"
     value={value}
     onChange={(evt) => onChange(evt.target.value)} />

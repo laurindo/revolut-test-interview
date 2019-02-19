@@ -5,6 +5,11 @@ import * as actionTypes from '../constants/ActionTypes';
 import Converter from '../components/Converter';
 
 class ConverterContainer extends Component {
+  constructor(props) {
+    super(props);
+    this.textInputRef = React.createRef();
+  }
+
   componentDidMount() {
     const { balances, mountSelectCurrencies, currentBalance, convertedValues } = this.props;
     mountSelectCurrencies(balances, currentBalance, convertedValues);
@@ -17,6 +22,7 @@ class ConverterContainer extends Component {
   render() {
     return (
       <Converter
+        textInputRef={ this.textInputRef }
         formatDigits={ this.formatDigits.bind(this) }
         {...this.props} />
     );

@@ -1,5 +1,7 @@
 import Pooling from '../config/configurePooling';
 
+const DIGIT_LIMIT = 2;
+
 export const getUID = () => {
   function s4() {
     return Math.floor((1 + Math.random()) * 0x10000)
@@ -19,7 +21,7 @@ export const getSelectOptionsFormatted = (response = {}) => {
   });
 };
 
-export const formatValueToCurrency = (currency = 'USD', digits = 2, languageCode = 'en-US') => {
+export const formatValueToCurrency = (currency = 'USD', digits = DIGIT_LIMIT, languageCode = 'en-US') => {
   return {
     format: (value) => {
       if (isNumber(value) || typeof value === 'string') {
@@ -47,7 +49,7 @@ export const validateCurrencyNumber = (value = '') => {
   return valueFormatted;
 };
 
-export const showValueFormatted = (value = 0, digits = 2) => {
+export const showValueFormatted = (value = 0, digits = DIGIT_LIMIT) => {
   return parseFloat(value).toFixed(digits);
 };
 
@@ -75,4 +77,30 @@ export const startPooling = (callback) => {
 export const closePooling = (timer) => {
   clearInterval(timer);
   return null;
+};
+
+export const limitFraction = (previousValue, item, digits = DIGIT_LIMIT) => {
+  let currentValue = `${previousValue}${item}`;
+  var fraction = '';
+  var value = '';
+
+  if (currentValue.replace(/[^.]/g, '').length > 1) {
+    currentValue = currentValue.replace(/[.]/g, '');
+  }
+
+  if (currentValue.indexOf('.') !== -1) {
+    var splittedValue = currentValue.split('.');
+    value = splittedValue[0];
+    fraction = splittedValue[1];
+    fraction = fraction.substr(0, digits);
+    if (fraction) {
+      return `${value}.${fraction}`;
+    }
+  }
+  return `${currentValue}`;
+};
+
+export const removeLastValue = (value) => {
+  let newValue = value.split('').slice(0, value.length - 1);
+  return newValue.join('');
 };

@@ -2,11 +2,13 @@ import React, { useState } from 'react';
 import KeyboardRow from './KeyboardRow';
 import './style.css';
 
-const KeyboardWrapper = ({ items }) => (
+const items = [['1', '2', '3'], ['4', '5', '6'], ['7', '8', '9'], ['.', '0', 'DELETE']];
+
+const KeyboardWrapper = (props) => (
   <div className='keyboard-wrapper'>
     {
       items.map((row, index) => {
-        return <KeyboardRow key={index} row={ row } />
+        return <KeyboardRow {...props} key={index} row={ row } />
       })
     }
   </div>

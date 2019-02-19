@@ -11,8 +11,12 @@
 .converter-area .head {
   border-radius: 10px 10px 0 0;
   background-color: #188ee1;
-  padding: 20px;
+  padding: 5px;
   text-align: center;
+}
+
+.converter-area .head h2 {
+  margin: 10px;
 }
 
 .converter-area .head p {

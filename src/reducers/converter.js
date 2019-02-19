@@ -11,8 +11,8 @@ import { showValueFormatted } from '../utils/GeneralUtils';
 
 const initialState = {
   currencies: [],
-  valueSelected: 0,
-  valueConverted: 0,
+  valueSelected: '',
+  valueConverted: '',
   selectedCurrency: {
     label: '',
     value: 0,
@@ -40,7 +40,7 @@ export default function converter(state = initialState, action) {
     case types.CHANGE_VALUE_SELECTED:
       return {
         ...state,
-        valueSelected: validateCurrencyNumber(showValueFormatted(action.payload)),
+        valueSelected: action.payload, //validateCurrencyNumber(showValueFormatted(action.payload)),
       };
 
     case types.CHANGE_VALUE_CONVERTED:

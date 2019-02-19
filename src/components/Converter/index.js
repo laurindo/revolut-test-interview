@@ -4,6 +4,7 @@ import ValueNumber from '../ValueNumber';
 import InputNumber from '../InputNumber';
 import Title from '../Title';
 import Quotation from '../Quotation';
+import KeyboardContainer from '../../containers/KeyboardContainer';
 
 import './style.css';
 
@@ -20,11 +21,17 @@ const Converter = (props) => (
     </div>
 
     <div className="converter-widget container">
-      <div className="col-xs-12 col-sm-4 col-md-4">
+      <div className="col-xs-6 col-sm-4 col-md-4">
         <Currency
           changeCurrency={ props.selectCurrency }
           selectedCurrency={ props.selectedCurrency }
           options={ props.currencies }  />
+      </div>
+
+      <div className="col-xs-6 col-sm-4 col-md-4">
+        <InputNumber
+          onChange={ props.changeValueSelected }
+          value={ props.valueSelected.toString() } />
       </div>
 
       <div className="col-xs-12 col-sm-3 col-md-3 compare-quotation">
@@ -43,21 +50,24 @@ const Converter = (props) => (
           />
       </div>
 
-      <div className="col-xs-12 col-sm-4 col-md-4">
-        <InputNumber
-          onChange={ props.changeValueSelected }
-          value={ props.valueSelected.toString() } />
-      </div>
+
     </div>
 
     <hr />
 
     <div className="converter-widget container">
-      <div className="col-xs-12 col-sm-4 col-md-4">
+      <div className="col-xs-6 col-sm-4 col-md-4">
         <Currency
           changeCurrency={ props.selectCurrencyConversion }
           selectedCurrency={ props.selectedCurrencyConversion }
           options={ props.currencies }  />
+      </div>
+
+      <div className="col-xs-6 col-sm-4 col-md-4">
+        <InputNumber
+          readonly={ true }
+          onChange={ props.changeValueConverted}
+          value={ props.valueConverted.toString() } />
       </div>
 
       <div className="col-xs-12 col-sm-3 col-md-3 compare-quotation">
@@ -77,12 +87,10 @@ const Converter = (props) => (
 
       </div>
 
-      <div className="col-xs-12 col-sm-4 col-md-4">
-        <InputNumber
-          readonly={ true }
-          onChange={ props.changeValueConverted}
-          value={ props.valueConverted.toString() } />
-      </div>
+    </div>
+
+    <div>
+      <KeyboardContainer />
     </div>
 
   </div>
