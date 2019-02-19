@@ -60,7 +60,10 @@ const mapDispatchToProps = dispatch => {
     },
     changeValueConverted: value => {
       dispatch({ type: actionTypes.CHANGE_VALUE_CONVERTED, payload: value });
-    }
+    },
+    hideModal: () => {
+      dispatch({ type: actionTypes.HIDE_MODAL })
+    },
   };
 };
 

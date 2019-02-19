@@ -6,6 +6,7 @@ import Logo from "../components/Logo";
 import BalanceSliderContainer from "./BalanceSliderContainer";
 import ConvertedCurrencyContainer from "./ConvertedCurrencyContainer";
 import ContainerAnimated from "../components/ContainerAnimated";
+import ExchangeListContainer from './ExchangeListContainer';
 
 const store = configureStore();
 
@@ -15,6 +16,7 @@ const App = () => (
       <ContainerAnimated>
         <Logo width="20%" height="20%" />
         <BalanceSliderContainer title="Balances" />
+        <ExchangeListContainer />
         <ConvertedCurrencyContainer />
       </ContainerAnimated>
     </Provider>

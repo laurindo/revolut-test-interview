@@ -1,0 +1,34 @@
+.exchange-wrapper {
+  background-color: #f7f7f7;
+  padding: 5px; }
+  .exchange-wrapper .exchange-list {
+    color: #757575;
+    display: flex;
+    justify-content: space-between;
+    background-color: #f3f3f3;
+    border-bottom: solid 1px #e0e0e0; }
+    .exchange-wrapper .exchange-list .area-icon {
+      width: 15%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 2em;
+      margin: 0; }
+    .exchange-wrapper .exchange-list .area-title {
+      width: 60%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center; }
+    .exchange-wrapper .exchange-list .area-value {
+      display: flex;
+      width: 20%;
+      flex-direction: column;
+      justify-content: center;
+      align-items: flex-end;
+      padding-right: 10px; }
+      .exchange-wrapper .exchange-list .area-value .credit {
+        color: #319bdc;
+        font-size: 1.5em;
+        font-weight: 700; }
+      .exchange-wrapper .exchange-list .area-value .debt {
+        color: #d85a82; }

@@ -1,5 +1,6 @@
 import React from 'react';
 import Currency from '../Currency';
+import Button from '../Button';
 import ValueNumber from '../ValueNumber';
 import InputNumber from '../InputNumber';
 import Title from '../Title';
@@ -91,6 +92,11 @@ const Converter = (props) => (
 
     <div>
       <KeyboardContainer />
+    </div>
+
+    <div className="footer">
+      <Button title="Confirm" />
+      <Button title="Cancel" onClick={ props.hideModal } />
     </div>
 
   </div>

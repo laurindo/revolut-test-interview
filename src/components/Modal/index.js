@@ -10,12 +10,6 @@ class Modal extends Component {
           <div>
             { this.props.children }
           </div>
-          <div className="footer">
-            <Button
-              className="secondary"
-              title="close"
-              onClick={ () => this.props.hideModal() } />
-          </div>
         </div>
       </div>
     );
