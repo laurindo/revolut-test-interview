@@ -7,6 +7,8 @@ import {
   showValueFormatted,
   isNumber,
   keepNumberPositive,
+  limitFraction,
+  removeLastValue,
 } from '../GeneralUtils';
 
 describe('GENERAL UTILS', () => {
@@ -128,5 +130,57 @@ describe('GENERAL UTILS', () => {
 
     result = keepNumberPositive(NaN);
     expect(result).toBe(0);
+  });
+
+  test('should return a correct value when typed by Keyboard - limitFraction()', () => {
+    let result = limitFraction();
+    expect(result).toBe('');
+
+    result = limitFraction('', '2');
+    expect(result).toBe('2');
+
+    result = limitFraction('3', '2');
+    expect(result).toBe('32');
+
+    result = limitFraction('3.', '22');
+    expect(result).toBe('3.22');
+
+    result = limitFraction('3.', '224');
+    expect(result).toBe('3.22');
+
+    result = limitFraction('.', '999');
+    expect(result).toBe('.99');
+
+    result = limitFraction('2...', '');
+    expect(result).toBe('2');
+
+    result = limitFraction('2.2.4', '');
+    expect(result).toBe('224');
+
+    result = limitFraction('5.82', '.');
+    expect(result).toBe('582');
+  });
+
+  test('should remove last value - removeLastValue()', () => {
+    let result = removeLastValue('23.87');
+    expect(result).toBe('23.8');
+
+    result = removeLastValue('2.87');
+    expect(result).toBe('2.8');
+
+    result = removeLastValue('.');
+    expect(result).toBe('');
+
+    result = removeLastValue(null);
+    expect(result).toBe('');
+
+    result = removeLastValue(undefined);
+    expect(result).toBe('');
+
+    result = removeLastValue(NaN);
+    expect(result).toBe('');
+
+    result = removeLastValue([]);
+    expect(result).toBe('');
   });
 });

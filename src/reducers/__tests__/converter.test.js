@@ -4,8 +4,8 @@ import converterReducer from '../converter';
 describe('Converter Reducer', () => {
   const expected = {
     currencies: [],
-    valueSelected: 0,
-    valueConverted: 0,
+    valueSelected: '',
+    valueConverted: '',
     selectedCurrency: {
       label: '',
       value: 0,
@@ -30,7 +30,7 @@ describe('Converter Reducer', () => {
     expect(result.selectedCurrency.currency).toEqual('USD');
 
     result = converterReducer(undefined, { type: types.CHANGE_VALUE_SELECTED, payload: '-22' });
-    expect(result.valueSelected).toEqual('-22.00');
+    expect(result.valueSelected).toEqual('-22');
 
     const newExpected = {
       ...expected,

@@ -79,7 +79,7 @@ export const closePooling = (timer) => {
   return null;
 };
 
-export const limitFraction = (previousValue, item, digits = DIGIT_LIMIT) => {
+export const limitFraction = (previousValue = '', item = '', digits = DIGIT_LIMIT) => {
   let currentValue = `${previousValue}${item}`;
   var fraction = '';
   var value = '';
@@ -100,7 +100,10 @@ export const limitFraction = (previousValue, item, digits = DIGIT_LIMIT) => {
   return `${currentValue}`;
 };
 
-export const removeLastValue = (value) => {
-  let newValue = value.split('').slice(0, value.length - 1);
-  return newValue.join('');
+export const removeLastValue = (value = '') => {
+  if (value && !Array.isArray(value)) {
+    let newValue = value.split('').slice(0, value.length - 1);
+    return newValue.join('');
+  }
+  return '';
 };
