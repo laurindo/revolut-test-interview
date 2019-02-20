@@ -1,12 +1,24 @@
+.exchange-list-container {
+  background-color: #f3f3f3;
+  border-radius: 5px;
+  box-shadow: #e0e0e0 0px 1px 32px 0px;
+  padding: 0;
+}
+
 .exchange-wrapper {
-  background-color: #f7f7f7;
   padding: 5px;
+  .empty-exchanges {
+    text-align: center;
+    color: #bfbebe;
+    font-size: 1.2em;
+  }
   .exchange-list {
     color: #757575;
     display: flex;
     justify-content: space-between;
-    background-color: #f3f3f3;
-    border-bottom: solid 1px #e0e0e0;
+    background-color: #f1f1f1;
+    margin-bottom: 5px;
+    padding: 10px;
 
     .area-icon {
       width: 15%;
@@ -22,6 +34,12 @@
       display: flex;
       flex-direction: column;
       justify-content: center;
+      h6 {
+        margin: 0;
+      }
+      small {
+        font-size: 1em;
+      }
     }
 
     .area-value {
@@ -30,14 +48,15 @@
       flex-direction: column;
       justify-content: center;
       align-items: flex-end;
-      padding-right: 10px;
       .credit {
         color: #319bdc;
         font-size: 1.5em;
         font-weight: 700;
+        margin: 0;
       }
       .debt {
         color: #d85a82;
+        margin: 0;
       }
     }
   }

@@ -31,6 +31,11 @@ const initialState = {
 
 export default function converter(state = initialState, action) {
   switch (action.type) {
+    case types.CLEAR_CONVERTER:
+      return {
+        ...initialState,
+      };
+
     case types.CHANGE_SELECTED_CURRENCY:
       return {
         ...state,
@@ -68,7 +73,7 @@ export default function converter(state = initialState, action) {
           ...action.payload.currentBalance,
         },
         selectedCurrencyConversion: {
-          quotation: action.payload.quotations[0].value,
+          quotation: (action.payload.quotations[0]) ? action.payload.quotations[0].value : '',
           ...getDefaultBalanceCurrencyConversion(action.payload.balances, action.payload.quotations),
         },
         currencies: action.payload.balances.map(balance => {

@@ -3,6 +3,10 @@ import { connect } from 'react-redux';
 import * as converterActions from '../actions/ConverterActions';
 import * as actionTypes from '../constants/ActionTypes';
 import Converter from '../components/Converter';
+import {
+  getValuesToIncreaseTransaction,
+} from '../utils/BalanceUtils';
+import { getObjectExchangeList } from '../utils/ExchangeUtils';
 
 class ConverterContainer extends Component {
   constructor(props) {
@@ -34,6 +38,7 @@ const mapStateToProps = state => {
     convertedValues: state.convertedCurrencyList.convertedValues,
     currencies: state.converter.currencies,
     currentBalance: state.balance.currentBalance,
+    temporaryBalance: state.balance.temporaryBalance,
     selectedCurrency: state.converter.selectedCurrency,
     selectedCurrencyConversion: state.converter.selectedCurrencyConversion,
     valueSelected: state.converter.valueSelected,
@@ -62,7 +67,15 @@ const mapDispatchToProps = dispatch => {
       dispatch({ type: actionTypes.CHANGE_VALUE_CONVERTED, payload: value });
     },
     hideModal: () => {
-      dispatch({ type: actionTypes.HIDE_MODAL })
+      dispatch({ type: actionTypes.HIDE_MODAL });
+      dispatch({ type: actionTypes.CLEAR_CONVERTER });
+      dispatch({ type: actionTypes.RESET_TEMPORARY_BALANCE });
+    },
+    confirmTransaction: values => {
+      dispatch({ type: actionTypes.PROCESS_TRANSACTION_EXCHANGE, payload: getValuesToIncreaseTransaction(values) });
+      dispatch({ type: actionTypes.ADD_EXCHANGE, payload: getObjectExchangeList(values) });
+      dispatch({ type: actionTypes.HIDE_MODAL });
+      dispatch({ type: actionTypes.CLEAR_CONVERTER });
     },
   };
 };

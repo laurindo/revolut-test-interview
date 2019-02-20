@@ -16,9 +16,9 @@ const Converter = (props) => (
         title="Balance"
         className="secondary" />
 
-      <ValueNumber value={ props.currentBalance.label } />
-      <ValueNumber value={ props.currentBalance.symbol } />
-      <ValueNumber value={ props.currentBalance.value.toString() } />
+      <ValueNumber value={ props.temporaryBalance.label } />
+      <ValueNumber value={ props.temporaryBalance.symbol } />
+      <ValueNumber value={ props.temporaryBalance.value.toString() } />
     </div>
 
     <div className="converter-widget container">
@@ -29,8 +29,10 @@ const Converter = (props) => (
           options={ props.currencies }  />
       </div>
 
-      <div className="col-xs-6 col-sm-4 col-md-4">
+      <div className="col-xs-6 col-sm-4 col-md-4 field-red">
+        <h3 className='minus'>-</h3>
         <InputNumber
+          style={{ color: '#de89bb' }}
           onChange={ props.changeValueSelected }
           value={ props.valueSelected.toString() } />
       </div>
@@ -64,9 +66,11 @@ const Converter = (props) => (
           options={ props.currencies }  />
       </div>
 
-      <div className="col-xs-6 col-sm-4 col-md-4">
+      <div className="col-xs-6 col-sm-4 col-md-4 field-green">
+        <h3 className='plus'>+</h3>
         <InputNumber
           readonly={ true }
+          style={{ color: '#91e6a4' }}
           onChange={ props.changeValueConverted}
           value={ props.valueConverted.toString() } />
       </div>
@@ -95,7 +99,7 @@ const Converter = (props) => (
     </div>
 
     <div className="footer">
-      <Button title="Confirm" />
+      <Button title="Confirm" onClick={ () => { props.confirmTransaction(props) } } />
       <Button title="Cancel" onClick={ props.hideModal } />
     </div>
 

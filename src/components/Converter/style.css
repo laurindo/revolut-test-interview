@@ -8,6 +8,30 @@
   justify-content: space-between;
 }
 
+.converter-widget .minus {
+  position: absolute;
+  left: 10px;
+  margin: 5px;
+}
+
+.converter-widget .plus {
+  position: absolute;
+  left: 10px;
+  margin: 5px;
+}
+
+.converter-widget .field-red,
+.converter-widget .field-red input,
+.converter-widget .field-red input::placeholder {
+  color: #de89bb;
+}
+
+.converter-widget .field-green,
+.converter-widget .field-green input,
+.converter-widget .field-green input::placeholder {
+  color: #91e6a4;
+}
+
 .converter-area .head {
   border-radius: 10px 10px 0 0;
   background-color: #188ee1;

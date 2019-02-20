@@ -10,11 +10,13 @@ const ExchangeWrapper = ({ exchanges }) => {
     <div className="exchange-wrapper">
       <Title title="Exchanges" />
       {
-        exchanges.map((exchange, index) => {
-          return (
-            <ExchangeList key={index} exchange={exchange} />
-          );
-        })
+        (exchanges.length) ?
+          exchanges.map((exchange, index) => {
+            return (
+              <ExchangeList key={index} exchange={exchange} />
+            );
+          }) :
+          <p className="empty-exchanges"><i className="fa fa-flag"></i></p>
       }
     </div>
   );

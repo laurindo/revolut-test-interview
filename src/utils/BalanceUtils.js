@@ -1,4 +1,4 @@
-import { formatValueToCurrency, isNumber, showValueFormatted } from './GeneralUtils';
+import { formatValueToCurrency, isNumber, showValueFormatted, toNumber } from './GeneralUtils';
 import { getValueFromQuotation } from './QuotationUtils';
 
 export const getBalanceSelectOptionsFormatted = (balances = [], action) => {
@@ -60,4 +60,49 @@ export const getDefaultBalanceCurrencyConversion = (balances, quotations = []) =
   return balances.filter(balance => {
     return balance.currency === quotations[0].currency.substr(4,3);
   })[0];
+};
+
+export const getValuesToIncreaseTransaction = (objectTransaction) => {
+  return {
+    currencies: objectTransaction.currencies,
+    balances: objectTransaction.balances,
+    selectedCurrency: objectTransaction.selectedCurrency,
+    valueSelected: objectTransaction.valueSelected,
+    valueConverted: objectTransaction.valueConverted,
+    selectedCurrencyConversion: objectTransaction.selectedCurrencyConversion,
+  };
+};
+
+export const processTransactionExchange = (values) => {
+  const balanceIncreased = processTransactionToIncreaseExchangeTo(values);
+  const lastTransaction = processTransactionToDecreaseExchangeFrom(values, balanceIncreased);
+  return lastTransaction;
+};
+
+export const processTransactionToIncreaseExchangeTo = (values) => {
+  return values.balances.map(balance => {
+    if (balance.currency === values.selectedCurrencyConversion.currency) {
+      const valueConverted = toNumber(values.valueConverted);
+      const balanceValue = toNumber(balance.value);
+      return {
+        ...balance,
+        value: (valueConverted + balanceValue).toFixed(2),
+      };
+    }
+    return balance;
+  });
+};
+
+export const processTransactionToDecreaseExchangeFrom = (values, newBalances) => {
+  return newBalances.map(balance => {
+    if (balance.currency === values.selectedCurrency.currency) {
+      const valueSelected = toNumber(values.valueSelected);
+      const balanceValue = toNumber(balance.value);
+      return {
+        ...balance,
+        value: (balanceValue - valueSelected).toFixed(2),
+      };
+    }
+    return balance;
+  });
 };

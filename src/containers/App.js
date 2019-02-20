@@ -14,10 +14,17 @@ const App = () => (
   <div className="index-page">
     <Provider store={store}>
       <ContainerAnimated>
-        <Logo width="20%" height="20%" />
-        <BalanceSliderContainer title="Balances" />
-        <ExchangeListContainer />
-        <ConvertedCurrencyContainer />
+        <div className="container">
+          <Logo width="20%" height="20%" />
+          <BalanceSliderContainer title="Balances" />
+          <div className="col-xs-12 col-sm-12 col-lg-6 exchange-list-container">
+            <ExchangeListContainer />
+          </div>
+
+          <div className="col-xs-12 col-sm-12 col-lg-6">
+            <ConvertedCurrencyContainer />
+          </div>
+        </div>
       </ContainerAnimated>
     </Provider>
   </div>

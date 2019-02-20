@@ -20,6 +20,7 @@ const mapDispatchToProps = dispatch => {
     changeValueSelected: value => {
       dispatch({ type: actionTypes.CHANGE_VALUE_SELECTED, payload: value });
       dispatch({ type: actionTypes.CHANGE_VALUE_CONVERTED, payload: value });
+      dispatch({ type: actionTypes.CHANGE_TEMPORARY_BALANCE, payload: value });
     },
   };
 };

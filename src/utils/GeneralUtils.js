@@ -107,3 +107,7 @@ export const removeLastValue = (value = '') => {
   }
   return '';
 };
+
+export const toNumber = (value) => {
+  return parseFloat(value);
+};

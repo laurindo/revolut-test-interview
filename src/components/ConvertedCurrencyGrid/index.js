@@ -6,7 +6,7 @@ import Loading from '../Loading';
 import './style.css';
 
 const ConvertedCurrencyGrid = ({ props, currencyConversion, valuesTitle }) => (
-  <div className='container'>
+  <div>
     <div className="row">
       {
         (props.loading) ?

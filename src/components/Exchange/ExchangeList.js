@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from 'prop-types';
 
-const ExchangeList = ({ exchanges }) => {
+const ExchangeList = ({ exchange }) => {
   return (
     <div className="exchange-list">
       <div className="area-icon">
@@ -9,13 +9,13 @@ const ExchangeList = ({ exchanges }) => {
       </div>
 
       <div className="area-title">
-        <h6>exchanged to EUR</h6>
-        <small>time 10:18</small>
+        <h6>exchanged to { exchange.to }</h6>
+        <small>{ exchange.hour }</small>
       </div>
 
       <div className="area-value">
-        <p className="debt">- £ 50</p>
-        <p className="credit">+ € 34.56</p>
+        <p className="debt">{ exchange.debt }</p>
+        <p className="credit">{ exchange.credit }</p>
       </div>
     </div>
   );
