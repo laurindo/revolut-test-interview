@@ -1,3 +1,4 @@
+import { showValueFormatted } from '../utils/GeneralUtils';
 import * as types from '../constants/ActionTypes';
 import MockPockets from '../constants/MockPockets';
 import {
@@ -14,17 +15,23 @@ const initialState = {
 export default function balance(state = initialState, action) {
   switch (action.type) {
     case types.RESET_TEMPORARY_BALANCE:
+      const currentCurrency = state.balances.filter(balance => {
+        return state.currentBalance.currency === balance.currency;
+      });
       return {
         ...state,
-        temporaryBalance: state.currentBalance,
+        temporaryBalance: currentCurrency[0],
       };
 
     case types.CHANGE_TEMPORARY_BALANCE:
+      const currentBalanceValue = state.currentBalance.value;
+      const valuePayload = action.payload || 0;
+      const result = currentBalanceValue - valuePayload;
       return {
         ...state,
         temporaryBalance: {
           ...state.temporaryBalance,
-          value: state.temporaryBalance.value - action.payload
+          value: showValueFormatted(result),
         },
       };
 
@@ -32,6 +39,11 @@ export default function balance(state = initialState, action) {
       return {
         ...state,
         balances: processTransactionExchange(action.payload),
+        currentBalance: state.temporaryBalance,
+        temporaryBalance: {
+          ...state.temporaryBalance,
+          value: parseFloat(state.temporaryBalance.value)
+        },
       };
 
     case types.SUCCESS_QUOTATION:

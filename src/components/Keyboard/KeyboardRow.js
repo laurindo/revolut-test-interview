@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import KeyboardItem from './KeyboardItem';
 
 const KeyboardRow = ({ row, changeValueSelected, valueSelected }) => (

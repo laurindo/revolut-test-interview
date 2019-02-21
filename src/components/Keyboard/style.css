@@ -12,10 +12,14 @@
       font-size: 2em; }
       .keyboard-wrapper .keyboard-row .keyboard-item:hover {
         box-shadow: #1685e6 0px 5px 11px 5px; }
+      .keyboard-wrapper .keyboard-row .keyboard-item:active {
+        box-shadow: none; }
 
 @media only screen and (min-width: 768px) {
   .keyboard-wrapper {
-    padding-top: 50px; }
+    padding-top: 50px;
+    border-bottom: solid 1px #2c80ce;
+    padding-bottom: 50px; }
     .keyboard-wrapper .keyboard-row .keyboard-item {
       padding: 10px 50px;
       margin: 0;

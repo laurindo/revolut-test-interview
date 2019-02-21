@@ -1,6 +1,7 @@
 /* BUTTON */
 /* primary */
 /* secondary */
+/* success */
 button {
   padding: 10px 20px;
   border-radius: 10px;
@@ -13,3 +14,11 @@ button {
     box-shadow: #d6e2e8 1px 4px 7px 0px; }
   button.secondary {
     box-shadow: #0f5092 1px 4px 7px 0px; }
+  button.success {
+    background-color: #c6efd2;
+    border: solid 1px #a4e0b6;
+    color: #3a6948; }
+  button:disabled {
+    background-color: #ebedf0;
+    border: solid 1px #d6d7d8;
+    color: #a9a9a9; }

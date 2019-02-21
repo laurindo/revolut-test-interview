@@ -14,3 +14,9 @@ input.input-number {
 input.input-number::placeholder {
   color: #fff;
 }
+
+@media only screen and (min-width: 768px) {
+  input.input-number {
+    font-size: 3em;
+  }
+}

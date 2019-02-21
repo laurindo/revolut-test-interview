@@ -73,36 +73,44 @@ export const getValuesToIncreaseTransaction = (objectTransaction) => {
   };
 };
 
+export const processTransactionToIncreaseExchangeTo = (values) => {
+  try {
+    return values.balances.map(balance => {
+      if (balance.currency === values.selectedCurrencyConversion.currency) {
+        const valueConverted = toNumber(values.valueConverted);
+        const balanceValue = toNumber(balance.value);
+        return {
+          ...balance,
+          value: (valueConverted + balanceValue).toFixed(2),
+        };
+      }
+      return balance;
+    });
+  } catch (error) {
+    return (values) ? values.balances : [];
+  }
+};
+
+export const processTransactionToDecreaseExchangeFrom = (values, newBalances) => {
+  try {
+    return newBalances.map(balance => {
+      if (balance.currency === values.selectedCurrency.currency) {
+        const valueSelected = toNumber(values.valueSelected);
+        const balanceValue = toNumber(balance.value);
+        return {
+          ...balance,
+          value: (balanceValue - valueSelected).toFixed(2),
+        };
+      }
+      return balance;
+    });
+  } catch (error) {
+    return [];
+  }
+};
+
 export const processTransactionExchange = (values) => {
   const balanceIncreased = processTransactionToIncreaseExchangeTo(values);
   const lastTransaction = processTransactionToDecreaseExchangeFrom(values, balanceIncreased);
   return lastTransaction;
-};
-
-export const processTransactionToIncreaseExchangeTo = (values) => {
-  return values.balances.map(balance => {
-    if (balance.currency === values.selectedCurrencyConversion.currency) {
-      const valueConverted = toNumber(values.valueConverted);
-      const balanceValue = toNumber(balance.value);
-      return {
-        ...balance,
-        value: (valueConverted + balanceValue).toFixed(2),
-      };
-    }
-    return balance;
-  });
-};
-
-export const processTransactionToDecreaseExchangeFrom = (values, newBalances) => {
-  return newBalances.map(balance => {
-    if (balance.currency === values.selectedCurrency.currency) {
-      const valueSelected = toNumber(values.valueSelected);
-      const balanceValue = toNumber(balance.value);
-      return {
-        ...balance,
-        value: (balanceValue - valueSelected).toFixed(2),
-      };
-    }
-    return balance;
-  });
 };

@@ -1,11 +1,9 @@
-.exchange-list-container {
+.exchange-wrapper {
   background-color: #f3f3f3;
   border-radius: 5px;
   box-shadow: #e0e0e0 0px 1px 32px 0px;
-  padding: 0; }
-
-.exchange-wrapper {
-  padding: 5px; }
+  padding: 1px;
+  margin-top: 20px; }
   .exchange-wrapper .empty-exchanges {
     text-align: center;
     color: #bfbebe;
@@ -35,13 +33,13 @@
         font-size: 1em; }
     .exchange-wrapper .exchange-list .area-value {
       display: flex;
-      width: 20%;
+      width: 30%;
       flex-direction: column;
       justify-content: center;
       align-items: flex-end; }
       .exchange-wrapper .exchange-list .area-value .credit {
         color: #319bdc;
-        font-size: 1.5em;
+        font-size: 1.3em;
         font-weight: 700;
         margin: 0; }
       .exchange-wrapper .exchange-list .area-value .debt {

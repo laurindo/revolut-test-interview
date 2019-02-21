@@ -10,7 +10,7 @@ const ExchangeList = ({ exchange }) => {
 
       <div className="area-title">
         <h6>exchanged to { exchange.to }</h6>
-        <small>{ exchange.hour }</small>
+        <small>{ exchange.dateTime }</small>
       </div>
 
       <div className="area-value">
@@ -19,6 +19,10 @@ const ExchangeList = ({ exchange }) => {
       </div>
     </div>
   );
+};
+
+ExchangeList.propTypes = {
+  exchange: PropTypes.object.isRequired,
 };
 
 export default ExchangeList;

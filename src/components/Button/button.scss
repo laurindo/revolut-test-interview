@@ -16,4 +16,16 @@ button {
   &.secondary {
     box-shadow: $btnShadowBlue 1px 4px 7px 0px;
   }
+
+  &.success {
+    background-color: $btnBgSuccess;
+    border: solid 1px $btnBorderSuccess;
+    color: $btnColorSuccess;
+  }
+
+  &:disabled {
+    background-color: $btnBgColor;
+    border: solid 1px $btnBorderColor;
+    color: $btnColor;
+  }
 }

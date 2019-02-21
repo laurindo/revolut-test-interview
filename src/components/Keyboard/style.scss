@@ -13,6 +13,9 @@
       &:hover {
         box-shadow: #1685e6 0px 5px 11px 5px;
       }
+      &:active {
+        box-shadow: none;
+      }
     }
   }
 }
@@ -20,13 +23,15 @@
 @media only screen and (min-width: 768px) {
   .keyboard-wrapper {
     padding-top: 50px;
+    border-bottom: solid 1px #2c80ce;
+    padding-bottom: 50px;
     .keyboard-row {
       .keyboard-item {
         padding: 10px 50px;
         margin: 0;
         cursor: pointer;
         min-width: 25px;
-        font-size: 2em;
+        font-size: 3em;
         &:hover {
           box-shadow: #1685e6 0px 5px 11px 5px;
         }

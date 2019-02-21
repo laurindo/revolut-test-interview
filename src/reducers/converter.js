@@ -1,13 +1,11 @@
 import * as types from '../constants/ActionTypes';
 import {
-  validateCurrencyNumber,
   convertNumber,
   keepNumberPositive,
 } from '../utils/GeneralUtils';
 
 import { getDefaultBalanceCurrencyConversion } from '../utils/BalanceUtils';
-import { getValueFromQuotation, calculatingQuotation } from '../utils/QuotationUtils';
-import { showValueFormatted } from '../utils/GeneralUtils';
+import { getValueFromQuotation } from '../utils/QuotationUtils';
 
 const initialState = {
   currencies: [],
@@ -45,7 +43,7 @@ export default function converter(state = initialState, action) {
     case types.CHANGE_VALUE_SELECTED:
       return {
         ...state,
-        valueSelected: action.payload, //validateCurrencyNumber(showValueFormatted(action.payload)),
+        valueSelected: action.payload,
       };
 
     case types.CHANGE_VALUE_CONVERTED:

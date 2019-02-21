@@ -58,5 +58,15 @@
 
 .converter-area .footer {
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
+}
+
+.converter-area .footer button {
+  margin: 0 10px;
+}
+
+@media only screen and (min-width: 768px) {
+  .converter-area .head {
+    padding: 20px;
+  }
 }

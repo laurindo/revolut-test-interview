@@ -29,10 +29,10 @@ const Converter = (props) => (
           options={ props.currencies }  />
       </div>
 
-      <div className="col-xs-6 col-sm-4 col-md-4 field-red">
+      <div className="col-xs-6 col-sm-6 col-md-6 field-red">
         <h3 className='minus'>-</h3>
         <InputNumber
-          style={{ color: '#de89bb' }}
+          readonly={ true }
           onChange={ props.changeValueSelected }
           value={ props.valueSelected.toString() } />
       </div>
@@ -66,11 +66,10 @@ const Converter = (props) => (
           options={ props.currencies }  />
       </div>
 
-      <div className="col-xs-6 col-sm-4 col-md-4 field-green">
+      <div className="col-xs-6 col-sm-6 col-md-6 field-green">
         <h3 className='plus'>+</h3>
         <InputNumber
           readonly={ true }
-          style={{ color: '#91e6a4' }}
           onChange={ props.changeValueConverted}
           value={ props.valueConverted.toString() } />
       </div>
@@ -99,7 +98,12 @@ const Converter = (props) => (
     </div>
 
     <div className="footer">
-      <Button title="Confirm" onClick={ () => { props.confirmTransaction(props) } } />
+      <Button
+        className="success"
+        title="Confirm"
+        disabled={ parseFloat(props.temporaryBalance.value) < 0 }
+        onClick={ () => { props.confirmTransaction(props) } } />
+
       <Button title="Cancel" onClick={ props.hideModal } />
     </div>
 

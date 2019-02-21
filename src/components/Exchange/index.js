@@ -22,4 +22,8 @@ const ExchangeWrapper = ({ exchanges }) => {
   );
 };
 
+ExchangeWrapper.propTypes = {
+  exchange: PropTypes.array,
+};
+
 export default ExchangeWrapper;
