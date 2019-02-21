@@ -20,6 +20,7 @@ ShallowWrapper {
     "props": Object {
       "className": "input-number",
       "onChange": [Function],
+      "placeholder": "0",
       "readOnly": false,
       "type": "text",
       "value": "2",
@@ -36,6 +37,7 @@ ShallowWrapper {
       "props": Object {
         "className": "input-number",
         "onChange": [Function],
+        "placeholder": "0",
         "readOnly": false,
         "type": "text",
         "value": "2",

@@ -7,6 +7,7 @@ describe('Balance Reducer', () => {
     const expected = {
       balances: MockPockets,
       currentBalance: MockPockets[0],
+      temporaryBalance: MockPockets[0],
       currentQuotation: 0,
     };
 

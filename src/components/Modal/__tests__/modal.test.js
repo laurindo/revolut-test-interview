@@ -14,6 +14,6 @@ describe('Modal Component', () => {
     expect(component.find('.modal_inner div').get(0).props.children.props.children).toEqual('modal test!!!');
 
     const component2 = shallow(<Modal><div>modal test!!!</div></Modal>);
-    expect(component2.find('.modal_inner div')).toHaveLength(3);
+    expect(component2.find('.modal_inner div')).toHaveLength(2);
   });
 });

@@ -49,7 +49,6 @@ ShallowWrapper {
                               ]
                 } />
 </div>,
-      "className": "container",
     },
     "ref": null,
     "rendered": Object {
@@ -129,7 +128,6 @@ ShallowWrapper {
                                       ]
                     } />
 </div>,
-        "className": "container",
       },
       "ref": null,
       "rendered": Object {
