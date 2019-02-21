@@ -4,5 +4,5 @@
  */
 export default {
   TOKEN_EXCHANGE_RATES: 'fa2444ba0dbb4fe8beda1fce0b2b628c',
-  TOKEN_CURRENCY_DATA_FEED: 'py2k9yrd6q06xsxouky3',
+  TOKEN_CURRENCY_DATA_FEED: '234g329aj7ifqvljnxgy',
 };
